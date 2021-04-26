@@ -66,7 +66,7 @@ if ($resource){
 
 echo "<table>";
 
-echo "<tr height=50><td width=160>Chia Nodes</td><td width=50 align=center>PORT</font></td><td width=60 align=right>TIME</td><td width=100 align=center>BLOCK</td></tr>";
+echo "<tr height=50><td width=160>Chia Nodes</td><td width=50 align=center>PORT</font></td><td width=100 align=center>BLOCK</td></tr>";
 
 foreach($totalass as $one => $two)
 
@@ -93,7 +93,7 @@ echo "<tr><td>";
 echo $word[1];
 
 
- echo "</td><td align=right><font color=\"8CEA00\">".$word[2]."</font></td><td align=right>".substr($word[6],0,5)." </td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";
+ echo "</td><td align=right><font color=\"8CEA00\">".$word[2]."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";
 
 
 
