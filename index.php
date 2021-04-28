@@ -26,10 +26,21 @@ error_reporting(0);
 	<body style="color:#ccc;">
 
 <?php
-
+$a=filemtime("node.log");
+$now_time = filemtime("good.log");
 $resource = fopen('node.log', 'r');
 $arr = array();
 $totalass = array();
+
+echo "<table><tr height=50><td width=160>Chia Nodes</td><td width=50 align=center>PORT</font></td><td width=100 align=center>BLOCK</td></tr>";
+
+if($a1>$now_time)
+
+{
+
+ file_put_contents("good.log","");
+
+
 if ($resource){
   
     while (!feof($resource)){
@@ -47,8 +58,34 @@ if ($resource){
 		
 		$arr["ip"]=$arr["ip"]." ".$line;
 
+	
 
-		array_push($totalass,$arr);}
+		$patt = '/\s{1,}/';
+
+	$ipc=preg_replace($patt,' ',$arr["ip"]);
+
+
+
+
+	$word=explode(" ",$ipc);
+
+
+$host = $word[1]; 
+$port = substr($word[2],-4); 
+
+$waitTimeoutInSeconds = 0.2; 
+if($fp = fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds)){ 
+
+		$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"8CEA00\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";
+
+
+
+		 file_put_contents("good.log",$ipo,FILE_APPEND );
+
+			}fclose($fp); 
+		
+		
+		}
 
 		else{
 		
@@ -57,55 +94,29 @@ if ($resource){
 		}
 
 
+		
+		
+
+
     }
 }
 
 
 
-
-
-echo "<table>";
-
-echo "<tr height=50><td width=160>Chia Nodes</td><td width=50 align=center>PORT</font></td><td width=100 align=center>BLOCK</td></tr>";
-
-foreach($totalass as $one => $two)
-
-{
-
-	extract($two);
-
-	$patt = '/\s{1,}/';
-
-	$ip=preg_replace($patt,' ',$ip);
-
-
-
-
-	$word=explode(" ",$ip);
-
-
-//print_r($word);
-
-
-echo "<tr><td>";
-
-
-echo $word[1];
-
-
- echo "</td><td align=right><font color=\"8CEA00\">".$word[2]."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";
-
-
-
 }
+
+
+
+echo file_get_contents("good.log");
+
 
 
 echo "</table>";
 
 
 
-$a=filemtime("node.log");
-           echo "<br>Last Update: ".date("Y-m-d H:i:s",$a);
+
+           echo "<br>Last Update: ".date("Y-m-d H:i:s",$now_time);
 
 		   ?>
 
