@@ -34,11 +34,11 @@ $totalass = array();
 
 echo "<table><tr height=50><td width=160>Chia Nodes</td><td width=50 align=center>PORT</font></td><td width=100 align=center>BLOCK</td></tr>";
 
-if($a1>$now_time)
+if($a>$now_time)
 
 {
 
- file_put_contents("good.log","");
+ file_put_contents("good.log"," ");
 
 
 if ($resource){
