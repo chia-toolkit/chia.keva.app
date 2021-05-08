@@ -119,6 +119,8 @@ echo "</table>";
 
 		   ?>
    <br><br>
+*If you want to remove your ip, you can disconnect local ip. 
+<br><br>
 
 introducer-apne.chia.net:8444 <br>
 introducer-apse.chia.net:8444 <br><br>
@@ -151,6 +153,10 @@ introducer-eu.chia.net:8444 <br>
 
 <tr><td>Chia BBS</td><td align=left><font color="8CEA00">reddit.com/r/chia</font></td></tr>
 <tr><td>Chia BBS</td><td align=left><font color="8CEA00">chiaforum.com</font></td></tr>
+
+<tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
+
+<tr><td>Chia LINKS</td><td align=left><font color="8CEA00">chialinks.com</font></td></tr>
 
 
 
