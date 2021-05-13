@@ -139,6 +139,7 @@ introducer-eu.chia.net:8444 <br>
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
+<tr><td>Free Chia</td><td align=left><font color="8CEA00">faucet.chia.net</font></td></tr>
 <tr><td>Chia Explorer</td><td align=left><font color="8CEA00">chiaexplorer.com</font></td></tr>
 <tr><td>Chia Explorer</td><td align=left><font color="8CEA00">chiastatus.com</font></td></tr>
 <tr><td>Chia Netspace</td><td align=left><font color="8CEA00">chianetspace.com</font></td></tr>
