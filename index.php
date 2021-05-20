@@ -122,17 +122,10 @@ echo "</table>";
 *If you want to remove your ip, you can disconnect local ip. 
 <br><br>
 
-introducer-apne.chia.net:8444 <br>
-introducer-apse.chia.net:8444 <br><br>
-introducer-or.chia.net:8444 <br>
-introducer-va.chia.net:8444 <br>
-introducer-eu.chia.net:8444 <br>
-
-		   <br>
 
 <table><tr height=50><td width=150>Links</td><td width=230 align=center></td></tr>
 
-
+<tr><td>More Nodes</td><td align=left><font color="8CEA00">chia.powerlayout.com</font></td></tr>
 
 <tr><td>chia.keva.app</td><td align=left><font color="8CEA00">github.com/chia-toolkit</font></td></tr>
 <tr><td>kevacoin code</td><td align=left><font color="8CEA00">62108412</font></td></tr>
@@ -140,6 +133,13 @@ introducer-eu.chia.net:8444 <br>
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
 <tr><td>Free Chia</td><td align=left><font color="8CEA00">faucet.chia.net</font></td></tr>
+<tr><td>Free Chia</td><td align=left><font color="8CEA00">chia2u.com</font></td></tr>
+<tr><td>Free Chia</td><td align=left><font color="8CEA00">chia.togatech.org</font></td></tr>
+<tr><td>Free Chia Game</td><td align=left><font color="8CEA00">keva.app?62108412</font></td></tr>
+
+<tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
+
+
 <tr><td>Chia Explorer</td><td align=left><font color="8CEA00">chiaexplorer.com</font></td></tr>
 <tr><td>Chia Explorer</td><td align=left><font color="8CEA00">chiastatus.com</font></td></tr>
 <tr><td>Chia Netspace</td><td align=left><font color="8CEA00">chianetspace.com</font></td></tr>
