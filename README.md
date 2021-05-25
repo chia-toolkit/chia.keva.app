@@ -7,4 +7,8 @@ curl https://chia.keva.app/ | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9
 
 You can run a node and share the nodes.
 
-35 * * * * bash /var/www/html/run.sh 1 > /var/www/html/node.log
+30 * * * * bash /var/www/html/run.sh 1 > /var/www/html/node.log
+
+Install apache and php
+
+apt install apache2 php php-mbstring
