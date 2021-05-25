@@ -11,6 +11,8 @@ crontab -e
 
 30 * * * * bash /var/www/html/run.sh 1 > /var/www/html/node.log
 
+service cron restart
+
 Install apache and php
 
 apt install apache2 php php-mbstring
