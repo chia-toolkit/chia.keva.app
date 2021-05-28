@@ -31,14 +31,16 @@ $now_time = filemtime("good.log");
 $resource = fopen('node.log', 'r');
 $arr = array();
 $totalass = array();
+$js=array();
 
-echo "<table><tr height=50><td width=160>Chia Nodes</td><td width=50 align=center>PORT</font></td><td width=100 align=center>BLOCK</td></tr><tr><td>5.189.201.93</td><td align=center><font color=\"8CEA00\">8444</font></td><td  align=center style=\"color:#FFD306;\">[LOCAL*]</td></tr>";
+echo "<table><tr height=50><td width=160>Chia Nodes</td><td width=50 align=center>PORT</font></td><td width=100 align=center>BLOCK</td></tr><tr><td>45.56.122.189</td><td align=center><font color=\"8CEA00\">8444</font></td><td  align=center style=\"color:#FFD306;\">[LOCAL*]</td></tr>";
 
 if($a>$now_time)
 
 {
 
  file_put_contents("good.log"," ");
+ //file_put_contents("win.txt"," ");
 
 
 if ($resource){
@@ -62,7 +64,7 @@ if ($resource){
 
 		$patt = '/\s{1,}/';
 
-	$ipc=preg_replace($patt,' ',$arr["ip"]);
+		$ipc=preg_replace($patt,' ',$arr["ip"]);
 
 
 
@@ -73,14 +75,20 @@ if ($resource){
 $host = $word[1]; 
 $port = substr($word[2],-4); 
 
+$js["ip"]=$host;
+
+array_push($totalass,$js);
+
 $waitTimeoutInSeconds = 0.2; 
 if($fp = fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds)){ 
 
 		$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"8CEA00\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";
-
+		
+		$ipw=$word[1]." ";
 
 
 		 file_put_contents("good.log",$ipo,FILE_APPEND );
+		 //file_put_contents("win.txt",$ipo,FILE_APPEND );
 
 			}fclose($fp); 
 		
@@ -105,7 +113,9 @@ if($fp = fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds)){
 
 }
 
+//$jso=json_encode($data,JSON_UNESCAPED_UNICODE);
 
+//file_put_contents("json.txt",$jso );
 
 echo file_get_contents("good.log");
 
@@ -119,11 +129,11 @@ echo "</table>";
 
 		   ?>
    <br><br>
-*If you want to remove your ip, you can disconnect local ip. 
-<br><br>
+*If you want to remove your ip, you can disconnect local ip. <br><br>Add all nodes:
+<br><br>curl https://chia.keva.app/ | grep -Eo '[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}' | while read line; do timeout 5s chia show -a $line:8444 ;done<br>
 
 
-<table><tr height=50><td width=150>Links</td><td width=230 align=center></td></tr>
+<table><tr height=50><td width=150>Links</td><td width=270 align=center></td></tr>
 
 <tr><td>More Nodes</td><td align=left><font color="8CEA00">chia.powerlayout.com</font></td></tr>
 
@@ -135,29 +145,31 @@ echo "</table>";
 <tr><td>Free Chia</td><td align=left><font color="8CEA00">faucet.chia.net</font></td></tr>
 <tr><td>Free Chia</td><td align=left><font color="8CEA00">chia2u.com</font></td></tr>
 <tr><td>Free Chia</td><td align=left><font color="8CEA00">chia.togatech.org</font></td></tr>
-<tr><td>Free Chia Game</td><td align=left><font color="8CEA00">keva.app?62108412</font></td></tr>
+<tr><td>Free Chia Game</td><td align=left><font color="8CEA00">Legend of Satoshi</font> <a href=https://ipfs.keva.app/ipfs/Qme3LKgGczUY44tDFC2ovFjGyFzsr9R7i8uiDjkLZVXqST><font color="ffffff">[Tutorial]</font></a></td></tr>
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
 
-<tr><td>Chia Explorer</td><td align=left><font color="8CEA00">chiaexplorer.com</font></td></tr>
-<tr><td>Chia Explorer</td><td align=left><font color="8CEA00">chiastatus.com</font></td></tr>
-<tr><td>Chia Netspace</td><td align=left><font color="8CEA00">chianetspace.com</font></td></tr>
-<tr><td>Chia Calculator</td><td align=left><font color="8CEA00">chiacalculator.com</font></td></tr>
+<tr><td>Explorer</td><td align=left><font color="8CEA00">chiaexplorer.com</font></td></tr>
+<tr><td>Explorer</td><td align=left><font color="8CEA00">chiastatus.com</font></td></tr>
+<tr><td>Explorer</td><td align=left><font color="8CEA00">chianetspace.com</font></td></tr>
+<tr><td>Calculator</td><td align=left><font color="8CEA00">chiacalculator.com</font></td></tr>
+<tr><td>Calculator</td><td align=left><font color="8CEA00">chiaprofitability.com</font></td></tr>
+
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
-<tr><td>Chia Blog</td><td align=left><font color="8CEA00">chiadecentral.com</font></td></tr>
-<tr><td>Chia Blog</td><td align=left><font color="8CEA00">thechiafarmer.com</font></td></tr>
+<tr><td>Blog</td><td align=left><font color="8CEA00">chiadecentral.com</font></td></tr>
+<tr><td>Blog</td><td align=left><font color="8CEA00">thechiafarmer.com</font></td></tr>
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
-<tr><td>Chia BBS</td><td align=left><font color="8CEA00">reddit.com/r/chia</font></td></tr>
-<tr><td>Chia BBS</td><td align=left><font color="8CEA00">chiaforum.com</font></td></tr>
+<tr><td>BBS</td><td align=left><font color="8CEA00">reddit.com/r/chia</font></td></tr>
+<tr><td>BBS</td><td align=left><font color="8CEA00">chiaforum.com</font></td></tr>
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
-<tr><td>Chia LINKS</td><td align=left><font color="8CEA00">chialinks.com</font></td></tr>
+<tr><td>LINKS</td><td align=left><font color="8CEA00">chialinks.com</font></td></tr>
 
 
 
