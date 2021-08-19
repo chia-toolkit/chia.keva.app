@@ -1,5 +1,8 @@
 <?php
 error_reporting(0);
+
+//Now node is 18GB, 25GB VPS is not enough to run this codes.
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,25 +75,39 @@ if ($resource){
 	$word=explode(" ",$ipc);
 
 
-$host = $word[1]; 
-$port = substr($word[2],-4); 
+$host = trim($word[1]); 
+$port = trim(substr($word[2],-4)); 
 
 $js["ip"]=$host;
 
 array_push($totalass,$js);
 
-$waitTimeoutInSeconds = 0.2; 
-if($fp = fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds)){ 
+$waitTimeoutInSeconds = 0.2;
+
+//echo "<tr><td>".$word[1]."</td><td align=center><font color=\"8CEA00\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";
+
+$fp = fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds);
+
+if(!$fp){ 
 
 		$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"8CEA00\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";
 		
 		$ipw=$word[1]." ";
 
+			}
+			else{
+			
+			$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"FF5733\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";	
+			
+			$ipw=$word[1]." ";
 
-		 file_put_contents("good.log",$ipo,FILE_APPEND );
-		 //file_put_contents("win.txt",$ipo,FILE_APPEND );
-
-			}fclose($fp); 
+			
+			}
+			//echo $ipo;
+			
+			file_put_contents("good.log",$ipo,FILE_APPEND );
+			
+			fclose($fp); 
 		
 		
 		}
@@ -120,6 +137,8 @@ if($fp = fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds)){
 echo file_get_contents("good.log");
 
 
+
+
 echo "</table>";
 
 
@@ -130,7 +149,8 @@ echo "</table>";
 		   ?>
    <br><br>
 *If you want to remove your ip, you can disconnect local ip. <br><br>Add all nodes:
-<br><br>curl https://chia.keva.app/ | grep -Eo '[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}' | while read line; do timeout 5s chia show -a $line:8444 ;done<br>
+<br><br>curl https://chia.keva.app/ | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | while read line; do timeout 5s chia show -a $line:8444 ;done<br><br>WIN PowerShell<br><br>
+curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b' -AllMatches | % { $_.Matches } | % { $_.Value } | ForEach-Object { Start-Sleep -s 5; chia show -a $_":8444" }<br>
 
 
 <table><tr height=50><td width=150>Links</td><td width=270 align=center></td></tr>
@@ -143,8 +163,9 @@ echo "</table>";
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
 <tr><td>Free Chia</td><td align=left><font color="8CEA00">faucet.chia.net</font></td></tr>
-<tr><td>Free Chia</td><td align=left><font color="8CEA00">chia2u.com</font></td></tr>
-<tr><td>Free Chia</td><td align=left><font color="8CEA00">chia.togatech.org</font></td></tr>
+<tr><td>Free Chia</td><td align=left><font color="8CEA00">chia2start.eu<font></td></tr>
+<tr><td>Free Chia</td><td align=left><font color="8CEA00">xchfaucet.togatech.org</font></td></tr>
+<tr><td>Free Chia</td><td align=left><font color="8CEA00">azpool.org/chiafaucet</font></td></tr>
 <tr><td>Free Chia Game</td><td align=left><font color="8CEA00">Legend of Satoshi</font> <a href=https://ipfs.keva.app/ipfs/Qme3LKgGczUY44tDFC2ovFjGyFzsr9R7i8uiDjkLZVXqST><font color="ffffff">[Tutorial]</font></a></td></tr>
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
@@ -152,15 +173,27 @@ echo "</table>";
 
 <tr><td>Explorer</td><td align=left><font color="8CEA00">chiaexplorer.com</font></td></tr>
 <tr><td>Explorer</td><td align=left><font color="8CEA00">chiastatus.com</font></td></tr>
-<tr><td>Explorer</td><td align=left><font color="8CEA00">chianetspace.com</font></td></tr>
+<tr><td>Calculator</td><td align=left><font color="8CEA00">lite.profit-mine.com/en/hdd</font></td></tr>
 <tr><td>Calculator</td><td align=left><font color="8CEA00">chiacalculator.com</font></td></tr>
 <tr><td>Calculator</td><td align=left><font color="8CEA00">chiaprofitability.com</font></td></tr>
 
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
+<tr><td>Pool</td><td align=left><font color="8CEA00">miningpoolstats.stream/chia</font></td></tr>
+<tr><td>Pool</td><td align=left><font color="8CEA00">chiapool.directory</font></td></tr>
+<tr><td>Pool</td><td align=left><font color="8CEA00">farmingpoolcalculator.com</font></td></tr>
+
+
+<tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
+
 <tr><td>Blog</td><td align=left><font color="8CEA00">chiadecentral.com</font></td></tr>
 <tr><td>Blog</td><td align=left><font color="8CEA00">thechiafarmer.com</font></td></tr>
+
+<tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
+
+<tr><td>Clisp</td><td align=left><font color="8CEA00">clisp.surrealdev.com</font></td></tr>
+
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
