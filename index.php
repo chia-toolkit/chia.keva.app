@@ -130,7 +130,7 @@ echo "</table>";
 		   ?>
    <br><br>
 *If you want to remove your ip, you can disconnect local ip. <br><br>Add all nodes:
-<br><br>curl https://chia.keva.app/ | grep -Eo '[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}.[0-9]{1,3}' | while read line; do timeout 5s chia show -a $line:8444 ;done<br>
+<br><br>curl https://chia.keva.app/ | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | while read line; do timeout 5s chia show -a $line:8444 ;done<br>
 
 
 <table><tr height=50><td width=150>Links</td><td width=270 align=center></td></tr>
