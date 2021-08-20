@@ -90,14 +90,16 @@ $fp = fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds);
 
 if(!$fp){ 
 
-		$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"8CEA00\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";
+		$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"FF5733\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";	
 		
 		$ipw=$word[1]." ";
 
 			}
 			else{
+
+			$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"8CEA00\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";
 			
-			$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"FF5733\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";	
+			
 			
 			$ipw=$word[1]." ";
 
