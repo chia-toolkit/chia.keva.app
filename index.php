@@ -27,6 +27,67 @@ error_reporting(-1);
 
 	<body style="color:#ccc;">
 
+CHIA ASSET ID SEARCH  <a href=dream.php target=_blank><font color="8CEA00">[ADD NEW]</font></a><br><br>
+
+<?php
+
+$kpc = new Keva();
+
+$_REQ = array_merge($_GET, $_POST);
+
+$freeadd=trim(strip_tags($_REQ["num"]));
+
+
+echo "<form action=\"\" method=\"post\" >";
+
+if(!$freeadd){$cdata="ID OR NAME";}else{$cdata="$freeadd";}
+
+echo "<input type=\"text\" name=\"num\" id=\"editor\" class=\"textarea-inherit\"  style=\"width:175px;border: 1px solid #666666;font-family: coda_regular, arial, helvetica, sans-serif;-webkit-appearance: none;-webkit-border-radius:0;height:30px;font-size: 20px; background-color: rgb(11, 12, 13);color: #ddd;padding-left:10px;letter-spacing:2px;
+\" value=\"".$_REQUEST["hvalue"]."\" maxlength=64 placeholder=\"".$cdata."\">";
+
+echo "<input type=\"submit\" value=\"CHECK\" style=\"border: 0px solid #666666;-webkit-appearance:none ;-webkit-border-radius: 0;border-radius:0;height:36px;background-color:#212121;color: #59fbea;height:30px;width:100px;font-size: 20px;padding-top:0px;\">";
+
+echo "<br><br>";
+
+
+
+
+if(strlen($freeadd)==64) {
+
+	$cats=strtolower($freeadd);
+
+	$bigstep=$kpc->keva_get("NYL2Y1a1ZhrxSTXWdiKLoYujNX615Xo8ZB",$cats);
+	echo "<font color=\"8CEA00\">".$bigstep['value']."</font>";
+
+	$checkm=$bigstep['value'];
+
+	if($bigstep['value']!=""){
+	
+	$cats=strtoupper($bigstep['value']);
+
+	$bigstep=$kpc->keva_get("NY145F97ASf74m1ahEDVpKwC4p7BXpFztP",$cats);
+	echo "<br><br>".$bigstep['value'];
+	
+							}
+
+	}
+	else
+	{
+	
+	$cats=strtoupper($freeadd);
+
+	$bigstep=$kpc->keva_get("NY145F97ASf74m1ahEDVpKwC4p7BXpFztP",$cats);
+	echo $bigstep['value'];
+	}
+
+
+
+
+?>
+<br><br>
+
+Search CATs on <a href=https://keva.one/search target=_blank><font color="8CEA00">keva.one/search</font></a>
+
 <?php
 $a=filemtime("node.log");
 $now_time = filemtime("good.log");
@@ -153,66 +214,7 @@ echo "</table>";
 <br><br>curl https://chia.keva.app/ | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | while read line; do timeout 5s chia show -a $line:8444 ;done<br><br>WIN PowerShell<br><br>
 curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b' -AllMatches | % { $_.Matches } | % { $_.Value } | ForEach-Object { Start-Sleep -s 5; chia show -a $_":8444" }<br>
 
-<br>CHIA ASSET ID SEARCH  <a href=dream.php target=_blank><font color="8CEA00">[ADD NEW]</font></a><br><br>
-
-<?php
-
-$kpc = new Keva();
-
-$_REQ = array_merge($_GET, $_POST);
-
-$freeadd=trim(strip_tags($_REQ["num"]));
-
-
-echo "<form action=\"\" method=\"post\" >";
-
-if(!$freeadd){$cdata="ID OR NAME";}else{$cdata="$freeadd";}
-
-echo "<input type=\"text\" name=\"num\" id=\"editor\" class=\"textarea-inherit\"  style=\"width:175px;border: 1px solid #666666;font-family: coda_regular, arial, helvetica, sans-serif;-webkit-appearance: none;-webkit-border-radius:0;height:30px;font-size: 20px; background-color: rgb(11, 12, 13);color: #ddd;padding-left:10px;letter-spacing:2px;
-\" value=\"".$_REQUEST["hvalue"]."\" maxlength=64 placeholder=\"".$cdata."\">";
-
-echo "<input type=\"submit\" value=\"CHECK\" style=\"border: 0px solid #666666;-webkit-appearance:none ;-webkit-border-radius: 0;border-radius:0;height:36px;background-color:#212121;color: #59fbea;height:30px;width:100px;font-size: 20px;padding-top:0px;\">";
-
-echo "<br><br>";
-
-
-
-
-if(strlen($freeadd)==64) {
-
-	$cats=strtolower($freeadd);
-
-	$bigstep=$kpc->keva_get("NYL2Y1a1ZhrxSTXWdiKLoYujNX615Xo8ZB",$cats);
-	echo "<font color=\"8CEA00\">".$bigstep['value']."</font>";
-
-	$checkm=$bigstep['value'];
-
-	if($bigstep['value']!=""){
-	
-	$cats=strtoupper($bigstep['value']);
-
-	$bigstep=$kpc->keva_get("NY145F97ASf74m1ahEDVpKwC4p7BXpFztP",$cats);
-	echo "<br><br>".$bigstep['value'];
-	
-							}
-
-	}
-	else
-	{
-	
-	$cats=strtoupper($freeadd);
-
-	$bigstep=$kpc->keva_get("NY145F97ASf74m1ahEDVpKwC4p7BXpFztP",$cats);
-	echo $bigstep['value'];
-	}
-
-
-
-
-?>
-<br><br>
-
-Search CATs on <a href=https://keva.one/search target=_blank><font color="8CEA00">keva.one/search</font></a>
+<br>
 
 
 <br>
