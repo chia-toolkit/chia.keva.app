@@ -57,7 +57,8 @@ if(strlen($freeadd)==64) {
 	$cats=strtolower($freeadd);
 
 	$bigstep=$kpc->keva_get("NYL2Y1a1ZhrxSTXWdiKLoYujNX615Xo8ZB",$cats);
-	echo "<font color=\"8CEA00\">".$bigstep['value']."</font>";
+
+	echo "<a href=https://keva.one/search?sq=".$bigstep['value']."><font color=\"8CEA00\">".$bigstep['value']."</font></a>";
 
 	$checkm=$bigstep['value'];
 
@@ -66,7 +67,25 @@ if(strlen($freeadd)==64) {
 	$cats=strtoupper($bigstep['value']);
 
 	$bigstep=$kpc->keva_get("NY145F97ASf74m1ahEDVpKwC4p7BXpFztP",$cats);
-	echo "<br><br>".$bigstep['value'];
+
+	$bigdata=$bigstep['value'];
+
+
+	$catid=substr($bigdata,0,64);
+	$catn=trim(strip_tags(strtolower($cats)));
+
+	$catida="<a href=https://keva.one/search?sq=".$catid."><font color=\"8CEA00\">".$catid."</font></a>";
+	$catna="<a href=https://keva.one/search?sq=".$catn."><font color=\"8CEA00\">".$catn."</font></a>";
+	$chiaa="<a href=https://keva.one/search?sq=chia><font color=\"8CEA00\">chia</font></a>";
+	$chiac="<a href=https://keva.one/search?sq=cats><font color=\"8CEA00\">cats</font></a>";
+
+	$bigdata=str_replace($catid,$catida,$bigdata);
+	$bigdata=str_replace($catn,$catna,$bigdata);
+	$bigdata=str_replace("chia",$chiaa,$bigdata);
+	$bigdata=str_replace("cats",$chiac,$bigdata);
+
+	
+	echo "<br><br>".$bigdata;
 	
 							}
 
@@ -77,7 +96,25 @@ if(strlen($freeadd)==64) {
 	$cats=strtoupper($freeadd);
 
 	$bigstep=$kpc->keva_get("NY145F97ASf74m1ahEDVpKwC4p7BXpFztP",$cats);
-	echo $bigstep['value'];
+	
+	$bigdata=$bigstep['value'];
+
+	$catid=substr($bigdata,0,64);
+	$catn=trim(strip_tags(strtolower($cats)));
+
+	$catida="<a href=https://keva.one/search?sq=".$catid."><font color=\"8CEA00\">".$catid."</font></a>";
+	$catna="<a href=https://keva.one/search?sq=".$catn."><font color=\"8CEA00\">".$catn."</font></a>";
+	$chiaa="<a href=https://keva.one/search?sq=chia><font color=\"8CEA00\">chia</font></a>";
+	$chiac="<a href=https://keva.one/search?sq=cats><font color=\"8CEA00\">cats</font></a>";
+
+	$bigdata=str_replace($catid,$catida,$bigdata);
+	$bigdata=str_replace($catn,$catna,$bigdata);
+	$bigdata=str_replace("chia",$chiaa,$bigdata);
+	$bigdata=str_replace("cats",$chiac,$bigdata);
+
+	
+	echo "<br><br>".$bigdata;
+
 	}
 
 
@@ -210,7 +247,7 @@ echo "</table>";
 
 		   ?>
    <br><br>
-*If you want to remove your ip, you can disconnect local ip. <br><br>Add all nodes:
+*If you want to remove your ip, you can disconnect local ip. <br>*You need to use the latest wallet on chia.net<br>*Green is fast in US(<0.2s)<br><br>Add all nodes:
 <br><br>curl https://chia.keva.app/ | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | while read line; do timeout 5s chia show -a $line:8444 ;done<br><br>WIN PowerShell<br><br>
 curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b' -AllMatches | % { $_.Matches } | % { $_.Value } | ForEach-Object { Start-Sleep -s 5; chia show -a $_":8444" }<br>
 
