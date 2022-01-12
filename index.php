@@ -81,11 +81,15 @@ if(strlen($freeadd)==64) {
 
 	$bigdata=str_replace($catid,$catida,$bigdata);
 	$bigdata=str_replace($catn,$catna,$bigdata);
+	$bigdata=str_replace($cats,$catna,$bigdata);
 	$bigdata=str_replace("chia",$chiaa,$bigdata);
 	$bigdata=str_replace("cats",$chiac,$bigdata);
 
 	
 	echo "<br><br>".$bigdata;
+
+	echo "Check the offer on [<a href=https://offerbin.io/?o=".$catn." target=_blank><font color=\"8CEA00\">offerbin.io</font></a>] [<a href=https://hash.green/dex/ target=_blank><font color=\"8CEA00\">hash.green</font></a>]";
+
 	
 							}
 
@@ -109,21 +113,24 @@ if(strlen($freeadd)==64) {
 
 	$bigdata=str_replace($catid,$catida,$bigdata);
 	$bigdata=str_replace($catn,$catna,$bigdata);
+	$bigdata=str_replace($cats,$catna,$bigdata);
 	$bigdata=str_replace("chia",$chiaa,$bigdata);
 	$bigdata=str_replace("cats",$chiac,$bigdata);
 
 	
 	echo "<br><br>".$bigdata;
 
-	}
+	echo "<br><br>Check the offer on [<a href=https://offerbin.io/?o=".$catn." target=_blank><font color=\"8CEA00\">offerbin.io</font></a>] [<a href=https://hash.green/dex/ target=_blank><font color=\"8CEA00\">hash.green</font></a>]";
 
+
+	}
 
 
 
 ?>
 <br><br>
 
-Search CATs on <a href=https://keva.one/search target=_blank><font color="8CEA00">keva.one/search</font></a>
+Search CATs [<a href=https://keva.one/search?sq=cats target=_blank><font color="8CEA00">keva.one/search</font></a>] [<a href=https://xchtoken.org/ target=_blank><font color="8CEA00">xchtoken.org</font></a>]
 
 <?php
 $a=filemtime("node.log");
