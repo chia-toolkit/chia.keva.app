@@ -252,7 +252,8 @@ echo "<div style=\"display:block;width:100%;font-family: coda_regular, arial, he
 			
 			echo "</form>";
 
-			echo "<br>&nbsp;You can upload your offer file and click Read File, or copy your offer data and input title by self.";
+			echo "<br>&nbsp;*You can upload your offer file and click Read File, or copy your offer data and input title by self.";
+			echo "<br>&nbsp;*You can use <a href=https://kevacoin.org>kevacoin</a> app to upload offer file with tag #offer, then everyone could search \"offer\" find your file.";
 
 
 //list
@@ -667,7 +668,7 @@ echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\"><ul>";
 		//workarea
 
 
-	echo "</ul><ul><li style=\"background-color: rgb(0, 79, 74);height:100px;display:block;\"><h5>You can use <a href=https://kevacoin.org>kevacoin</a> app follow 64853471 and repost this file to your space.</h5></li>";
+	echo "</ul><ul><li style=\"background-color: rgb(0, 79, 74);height:100px;display:block;\"><h5>Notice that the offer file was named XX_for_XX, but the file name itself does not dictate the contents of the offer. You may check the offer in your wallet carefully. You can also use <a href=https://kevacoin.org>kevacoin</a> app follow 64853471 and repost this file to your space.</h5></li>";
 
 	
 			
