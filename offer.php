@@ -299,7 +299,7 @@ foreach ($totalass as $o=>$p)
 			
 	$key=str_replace(".offer","",$key);
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:100px;display:block;\"><h5>[".$height."] <a href=?txid=".$txid.">SELL ".$key."</a></h5></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:100px;display:block;text-align:left;\"><h5 style=\"padding-left:20px;\">[".$height."] <a href=?txid=".$txid.">SELL ".$key."</a></h5></li></ul>";
 			
 			}
 
@@ -478,7 +478,7 @@ width:98%;
             li
             {
                 border: 1px solid #59fbea;
-                width: 440px;
+                width: 540px;
 				height:100px;
 				word-break: break-all;
 			background-color: rgb(0, 79, 74);
@@ -626,7 +626,7 @@ echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\"><ul>";
 								
 								echo "<li style=\"background-color: rgb(0, 79, 74);display:block;height:auto;\"><h4>QR CODE</h4><hr style=\"background-color:#59fbea;height:1px;border:none;\"><font size=3><img src=https://keva.app/bludit/qr.php?v=".$vaulth."&theme=1></font></li>";
 
-								echo "<li style=\"background-color: rgb(0, 79, 74);display:block;height:auto;\"><h4>OFFER FILE LINK</h4><hr style=\"background-color:#59fbea;height:1px;border:none;\"><font size=2>chia.keva.app/offer.php?txid=".$txidget."</font></li>";
+								
 
 
 										
@@ -661,6 +661,8 @@ echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\"><ul>";
 			//button
 
 		
+echo "</ul><ul><li style=\"background-color: rgb(0, 79, 74);display:block;height:40px;\"><font size=5>chia.keva.app/offer.php?txid=".$txidget."</font></li>";
+
 			echo "</ul><ul><a href=\"offer.php\"><li style=\"background-color: rgb(0, 79, 74);height:100px;display:block;\"><h3>[ UPLOAD MORE OFFER FILES ]</h3></a></li>";
 
 		//tips
