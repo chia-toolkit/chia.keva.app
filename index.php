@@ -88,7 +88,7 @@ if(strlen($freeadd)==64) {
 	
 	echo "<br><br>".$bigdata;
 
-	echo "Check the offer on [<a href=https://offerbin.io/?o=".$catn." target=_blank><font color=\"8CEA00\">offerbin.io</font></a>] [<a href=https://hash.green/dex/ target=_blank><font color=\"8CEA00\">hash.green</font></a>]";
+	echo "<br><br>Check ".$catn." offer on [<a href=https://offerbin.io/?o=".$catn." target=_blank><font color=\"8CEA00\">offerbin.io</font></a>] [<a href=https://hash.green/dex/ target=_blank><font color=\"8CEA00\">hash.green</font></a>] [<a href=/offer.php?cat=".$catn." target=_blank><font color=\"8CEA00\">chia.keva.app/offer</font></a>]";
 
 	
 							}
@@ -120,7 +120,7 @@ if(strlen($freeadd)==64) {
 	
 	echo "<br><br>".$bigdata;
 
-	echo "<br><br>Check the offer on [<a href=https://offerbin.io/?o=".$catn." target=_blank><font color=\"8CEA00\">offerbin.io</font></a>] [<a href=https://hash.green/dex/ target=_blank><font color=\"8CEA00\">hash.green</font></a>]";
+	echo "<br><br>Check ".$catn." offer on [<a href=https://offerbin.io/?o=".$catn." target=_blank><font color=\"8CEA00\">offerbin.io</font></a>] [<a href=https://hash.green/dex/ target=_blank><font color=\"8CEA00\">hash.green</font></a>] [<a href=/offer.php?cat=".$catn." target=_blank><font color=\"8CEA00\">chia.keva.app/offer</font></a>]";
 
 
 	}
@@ -140,7 +140,7 @@ $arr = array();
 $totalass = array();
 $js=array();
 
-echo "<table><tr height=50><td width=160>Chia Nodes</td><td width=50 align=center>PORT</font></td><td width=100 align=center>BLOCK</td></tr><tr><td>45.56.122.189</td><td align=center><font color=\"8CEA00\">8444</font></td><td  align=center style=\"color:#FFD306;\">[LOCAL*]</td></tr>";
+echo "<table><tr height=50><td width=160>Chia Nodes</td><td width=50 align=center>PORT</font></td><td width=100 align=center>BLOCK</td></tr><tr><td>45.79.220.6</td><td align=center><font color=\"8CEA00\">8444</font></td><td  align=center style=\"color:#FFD306;\">[LOCAL*]</td></tr>";
 
 if($a>$now_time)
 
