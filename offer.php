@@ -229,6 +229,8 @@ echo "<body style=\"background-color: #0b0c0d;\">";
 
 echo "<div style=\"display:block;width:100%;font-family: coda_regular, arial, helvetica, sans-serif;\"><ul style=\"border: 0px solid #59fbea;\"><li style=\"text-align:center;list-style:none;color: #28f428;font-size: 30px;letter-spacing:4px;margin-top:5px;padding-top:5px;height:45px;background-color:#0b0c0d;}\"><a href=/ style=\"color: #28f428;text-decoration: none;\">CHIA OFFER DATAS</a></li></ul></div>";
 
+echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\">";
+
 			echo "&nbsp;<input type=\"file\" id=\"files\" name=\"file\"/><span class=\"readBytesButtons\"><button id=\"mybtn\">Read File</button></span><br><br>";
 
 			echo "<form action=\"\" method=\"post\" >";	
@@ -237,15 +239,15 @@ echo "<div style=\"display:block;width:100%;font-family: coda_regular, arial, he
 
 		
 
-			echo "&nbsp;<textarea name=\"newtitle\" rows=\"1\" cols=\"100\" id=\"byte_t\"></textarea><br>";
+			echo "<center><textarea name=\"newtitle\" rows=\"1\" style=\"width:99%;overflow:auto;word-break:break-all;\" id=\"byte_t\"></textarea><br>";
 			
-			echo "&nbsp;<textarea name=\"newasset\" rows=\"15\" cols=\"100\" id=\"byte_content\"></textarea>";
+			echo "<textarea name=\"newasset\" rows=\"15\" style=\"width:99%;overflow:auto;word-break:break-all;\" id=\"byte_content\"></textarea></center>";
 
 			
 			
 			
 			
-			echo "<br><input type=\"submit\" value=\"SEND OFFER\" style=\"border: 1px solid #59fbea;webkit-appearance: none;-webkit-border-radius: 0;height:42px;background-color: rgb(0, 79, 74);color: #59fbea;padding: 5px 22px;height:45px;width:200px;font-size: 20px;\">";
+			echo "<br><br><input type=\"submit\" value=\"SEND OFFER\" style=\"border: 1px solid #59fbea;webkit-appearance: none;-webkit-border-radius: 0;height:42px;background-color: rgb(0, 79, 74);color: #59fbea;padding: 5px 22px;height:45px;width:200px;font-size: 20px;\">";
 
 		
 			
@@ -253,7 +255,7 @@ echo "<div style=\"display:block;width:100%;font-family: coda_regular, arial, he
 			echo "</form>";
 
 			echo "<br>&nbsp;*You can upload your offer file and click Read File, or copy your offer data and input title by self.";
-			echo "<br>&nbsp;*You can use <a href=https://kevacoin.org>kevacoin</a> app to upload offer file with tag #offer, then everyone could search \"offer\" find your file.";
+			echo "<br>&nbsp;*You can use <a href=https://kevacoin.org>kevacoin</a> app to upload offer file with tag #offer, then everyone could search \"offer\" find your file.<br><br>";
 
 
 //list
@@ -287,7 +289,7 @@ $info= $kpc->keva_filter($force_namespace,$cat,60000);
 
 arsort($totalass);
 
-		echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\"><ul>";
+		echo "<ul>";
 
 foreach ($totalass as $o=>$p) 
 
