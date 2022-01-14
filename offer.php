@@ -257,7 +257,28 @@ echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\">";
 			echo "<br>&nbsp;*You can upload your offer file and click Read File, or copy your offer data and input title by self.";
 			echo "<br>&nbsp;*You can use <a href=https://kevacoin.org>kevacoin</a> app to upload offer file with tag #offer, then everyone could search \"offer\" find your file.<br><br>";
 
+//cat
 
+$cinfo= $kpc->keva_filter("NY145F97ASf74m1ahEDVpKwC4p7BXpFztP","",0);
+
+
+
+echo "<ul>";
+
+	echo "<li style=\"background-color: rgb(0, 79, 74);display:block;text-align:center;width:150px;\"><h5 style=\"\"><a href=/offer.php>ALL</a></h5></li>";
+
+	foreach($cinfo as $y_value=>$y)
+
+			{
+			
+			extract($y);
+
+			if(stristr($key,"KEVA_NS_")==true){continue;}
+echo "<li style=\"background-color: rgb(0, 0, 0);display:block;text-align:center;width:150px;\"><h5 style=\"\"><a href=/offer.php?cat=".$key.">".$key."</a></h5></li>";
+
+			}
+		
+echo "</ul>";
 //list
 			
 	$arr=array();
