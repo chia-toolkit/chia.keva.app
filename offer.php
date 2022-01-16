@@ -169,9 +169,12 @@ $force_namespace="NUU3pPpU2GagZF64f98bv7jinLkreN6ZiD";
 
 if($_REQ["fk"]<>"" & $_REQ["fv"]<>"") {
 
+$fk=hex2bin($_REQ["fk"]);
 $fv=hex2bin($_REQ["fv"]);
 
-$file = $_REQ["fk"];
+$fk=str_replace(",",".",$fk);
+
+$file = $fk;
 $txt = fopen($file, "w");
 fwrite($txt, $fv);
 fclose($txt);
@@ -329,6 +332,8 @@ $info= $kpc->keva_filter($force_namespace,$cat,60000);
 
 			$arr["height"]=$height;
 			$arr["key"]=$key;
+			$arr["keyb"]=bin2hex($key);
+			$arr["value"]=bin2hex($value);
 			$arr["txid"]=$txid;
 
 		array_push($totalass,$arr);
@@ -345,10 +350,10 @@ foreach ($totalass as $o=>$p)
 			
 			extract($p);
 			
-	$key=str_replace(".offer","",$key);
-	$key=str_replace("_x_","</font> ] ..... ",$key);
+	$keyx=str_replace(".offer","",$key);
+	$keyx=str_replace("_x_"," ]</font> ..... ",$keyx);
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:100px;display:block;text-align:left;\"><h5 style=\"padding-left:10px;\">".$height." <a href=?txid=".$txid.">[ <font color=yellow>".$key."</font></a></h5></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:100px;display:block;text-align:left;\"><h5 style=\"padding-left:10px;\"><a href=offer.php?fk=".$keyb."&fv=".$value.">[ FILE ".$height."]</a> <a href=?txid=".$txid."><font color=yellow>[ ".$keyx."</font></a></h5></li></ul>";
 			
 			}
 
@@ -527,7 +532,7 @@ width:98%;
             li
             {
                 border: 1px solid #59fbea;
-                width: 540px;
+                width: 700px;
 				height:100px;
 				word-break: break-all;
 			background-color: rgb(0, 79, 74);
@@ -611,6 +616,7 @@ $txidget=$_REQ["txid"];
 
 					 $key=hex2bin($arr[2]);
 					 $value=hex2bin($arr[3]);
+					 $keyh=$arr[2];
 					  $valueh=$arr[3];
 
 					 $kadd=$vout["scriptPubKey"]["addresses"][0];
@@ -684,7 +690,7 @@ echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\"><ul>";
 
 
 						
-								echo "<li style=\"background-color: rgb(0, 79, 74);display:block;height:auto;width:900px;\"><a href=offer.php?fk=".$key."&fv=".$valueh."><h4>[ DOWNLOAD FILE ]</h4></a><hr style=\"background-color:#59fbea;height:1px;border:none;\">".$valuex."</li>";
+								echo "<li style=\"background-color: rgb(0, 79, 74);display:block;height:auto;width:900px;\"><a href=offer.php?fk=".$keyh."&fv=".$valueh."><h4>[ DOWNLOAD FILE ]</h4></a><hr style=\"background-color:#59fbea;height:1px;border:none;\">".$valuex."</li>";
 												
 
 
