@@ -167,6 +167,30 @@ $force_namespace="NUU3pPpU2GagZF64f98bv7jinLkreN6ZiD";
 
 //creat new to blockchain
 
+if($_REQ["fk"]<>"" & $_REQ["fv"]<>"") {
+
+$fv=hex2bin($_REQ["fv"]);
+
+$file = $_REQ["fk"];
+$txt = fopen($file, "w");
+fwrite($txt, $fv);
+fclose($txt);
+
+header('Content-Description: File Transfer');
+header('Content-Disposition: attachment; filename='.basename($file));
+header('Expires: 0');
+header('Cache-Control: must-revalidate');
+header('Pragma: public');
+header('Content-Length: '.filesize($file));
+header("Content-Type: text/plain");
+readfile($file);
+$status=unlink($file); 
+
+
+exit;
+
+}
+
 
 
 if($_REQ["newasset"]<>"") {
@@ -189,7 +213,7 @@ if($error != "")
 	
 	{
 
-echo"<script>alert('error');</script>";
+echo"<script>alert('error, file<3kb only');</script>";
 
 $url ="offer.php";
 	  
@@ -279,6 +303,7 @@ echo "<li style=\"background-color: rgb(0, 0, 0);display:block;text-align:center
 			}
 		
 echo "</ul>";
+
 //list
 			
 	$arr=array();
@@ -300,6 +325,8 @@ $info= $kpc->keva_filter($force_namespace,$cat,60000);
 			
 			extract($x);
 
+			if(stristr($key,"KEVA_NS_")==true){continue;}
+
 			$arr["height"]=$height;
 			$arr["key"]=$key;
 			$arr["txid"]=$txid;
@@ -319,8 +346,9 @@ foreach ($totalass as $o=>$p)
 			extract($p);
 			
 	$key=str_replace(".offer","",$key);
+	$key=str_replace("_x_","</font> ] ..... ",$key);
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:100px;display:block;text-align:left;\"><h5 style=\"padding-left:20px;\">[".$height."] <a href=?txid=".$txid.">SELL ".$key."</a></h5></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:100px;display:block;text-align:left;\"><h5 style=\"padding-left:10px;\">".$height." <a href=?txid=".$txid.">[ <font color=yellow>".$key."</font></a></h5></li></ul>";
 			
 			}
 
@@ -656,7 +684,7 @@ echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\"><ul>";
 
 
 						
-								echo "<li style=\"background-color: rgb(0, 79, 74);display:block;height:auto;width:900px;text-align:left;\">".$valuex."</li>";
+								echo "<li style=\"background-color: rgb(0, 79, 74);display:block;height:auto;width:900px;\"><a href=offer.php?fk=".$key."&fv=".$valueh."><h4>[ DOWNLOAD FILE ]</h4></a><hr style=\"background-color:#59fbea;height:1px;border:none;\">".$valuex."</li>";
 												
 
 
