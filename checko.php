@@ -4,11 +4,7 @@ error_reporting(0);
 
 $localip='127.0.0.1';
 
-$ipfscon="http://gotoipfs.com/#path=";
 
-$ismine="1";
-$keva_add="on";
-$kevaadd=30;
 
 //galaxy rpc setting
 
