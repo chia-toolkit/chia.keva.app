@@ -136,7 +136,7 @@ $vchk=substr($value, -1);
 if($vchk=="/"){$value=substr_replace($value ,"",-1);}
 
 
-echo "<ul><li style=\"background-color: ".randColor().";height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=?".$key."><font color=\"#ccc\" size=4>[ ".$key." ] </font>".$value."</a></p></li></ul>";
+echo "<ul><li style=\"background-color:".randColor().";height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=?".$key."><font color=\"#ccc\" size=4>[ ".$key." ] </font>".$value."</a></p></li></ul>";
 
 
 			
@@ -151,12 +151,11 @@ echo "<ul><li style=\"background-color: ".randColor().";height:40px;display:bloc
 
 ?>
 
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
-        <title>GALAXY</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">";
+        <title>GALAXY</title><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Include CSS Bootstrap file from Bludit Core -->
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css?version=3.12.0">
@@ -247,11 +246,13 @@ $checknm=$kpc->keva_get($shopns,"CAT.SALE");
 
 if($checknm['value']!=""){
 
+$vchk=substr($checknm['value'], -1);
 
+if($vchk=="/"){$valuenm=substr_replace($checknm['value'],"",-1);}
 
 echo "<div class=\"card mt-2\">";
 	
-echo "<div class=\"card-body\"><div class=\"card-title\"><h3 class=\"text-primary\">".$checknm['value']."</h3></div>";
+echo "<div class=\"card-body\"><div class=\"card-title\"><h3 class=\"text-primary\">".$valuenm."</h3></div>";
 
 echo "<p class=\"text-info card-subtitle mb-3\">cat.sale?".$comm."</p>";
 
@@ -653,6 +654,7 @@ class Keva {
 
 
 ?>
+
 </ul></div>
 </div>
 

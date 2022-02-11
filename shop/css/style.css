@@ -1,12 +1,13 @@
-@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
 
 html {
-    font-family: 'Source Code Pro', monospace;
+    font-family: coda_regular, arial, helvetica, sans-serif;
 }
 
 body{
     background-color: #121212;
-    font-family: 'Source Code Pro', monospace;
+    font-family: coda_regular, arial, helvetica, sans-serif;
+	letter-spacing:1px;
 }
 
 .nav-svg-icon {
@@ -27,7 +28,7 @@ hr {
     border-right: solid 3px rgba(0,255,0,.75);
     white-space: nowrap;
     overflow: hidden;    
-    font-family: 'Source Code Pro', monospace;  
+    font-family: coda_regular, arial, helvetica, sans-serif;  
 font-color: #28f428;
 }
 
