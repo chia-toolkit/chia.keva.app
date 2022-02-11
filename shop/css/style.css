@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
+
+html {
+    font-family: 'Source Code Pro', monospace;
+}
+
+body{
+    background-color: #121212;
+    font-family: 'Source Code Pro', monospace;
+}
+
+.nav-svg-icon {
+	width: 2rem;
+	height: 2rem;
+    padding-bottom: 5px;
+}
+
+.card-title {
+    font-weight: bold;
+}
+
+hr {
+    border-color: #2AA198;
+}
+
+#logo {
+    border-right: solid 3px rgba(0,255,0,.75);
+    white-space: nowrap;
+    overflow: hidden;    
+    font-family: 'Source Code Pro', monospace;  
+font-color: #28f428;
+}
+
+/* Animation */
+#logo {
+    animation: animated-text 2s steps(23,end) 1s 1 normal both,
+                animated-cursor 600ms steps(23,end) infinite;
+}
+
+/* text animation */
+
+@keyframes animated-text{
+    from{width: 0;}
+    to{width: 200px;}
+}
+
+/* cursor animations */
+
+@keyframes animated-cursor{
+    from{border-right-color: rgba(0,255,0,.75);}
+    to{border-right-color: transparent;}
+}
+
+img {
+	max-width: 100%;
+}
+
+code {
+	display: inline-block;
+	padding: 0 0.5em;
+	line-height: 1.4em;
+	border-radius: 3px;
+}
+
+.mini-logo {
+	height: 22px;
+	padding-bottom: 5px;
+}
+
+
+.namergb{   
+
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: #FF512F;
+
+    text-shadow: 0px 0px 7px #ffd800;
+    background-image: linear-gradient(90deg, #ffd800 0%, #ff512f 100%, #fff);
+    animation: glow-animation 10s infinite linear;
+    color: #FFC0CB;
+    box-sizing: border-box;
+    vertical-align: inherit;
+}
+@keyframes glow-animation{
+    0%{filter:hue-rotate(-360deg)}
+    100%{filter:hue-rotate(360deg)}
+}
