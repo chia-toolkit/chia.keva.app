@@ -106,6 +106,8 @@ echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:40px;display:block
 
 //link
 
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://chialisp.com/docs/tutorials/offers_gui_tutorial/><font size=4><font color=\"#ccc\">[ HELP ] </font>OFFERS TUTORIAL</a></p></li></ul>";
+
 echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://hash.green/dex><font size=4><font color=\"#ccc\">[ DEX ] </font>HASH.GREEN</a></p></li></ul>";
 
 echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://offerbin.io/><font size=4><font color=\"#ccc\">[ DEX ] </font>OFFERBIN.IO</a></p></li></ul>";
@@ -244,6 +246,8 @@ $shopns=$asset;
 
 $checknm=$kpc->keva_get($shopns,"CAT.SALE");
 
+$valuenm=$checknm['value'];
+
 if($checknm['value']!=""){
 
 $vchk=substr($checknm['value'], -1);
@@ -286,8 +290,7 @@ $spwait=1;
 			if(stristr($key,"CAT.SALE")==true){continue;}
 			if(stristr($key,"Congratulations")==true){continue;}
 
-			if(stristr($key,"_x_")==true){$spwait=0;}
-
+		
 			$value=hex2bin($value);
 
 
@@ -306,13 +309,17 @@ $spwait=1;
 				$valueb=bin2hex($valuex);
 				
 				$keyx=str_replace(".offer","",$key);
-				$keyx=str_replace("_x_"," ] <font color=grey>..... ",$keyx);
+
+				$xxx="";
+				
+				if(stristr($key,"_x_")==true){$spwait=0;$keyx=str_replace("_x_"," ] <font color=grey>..... ",$keyx);$xxx="[";}
+
 
 				$keyx=str_replace("(1)","",$keyx);
 				$keyx=str_replace("(2)","",$keyx);
 				$keyx=str_replace("(3)","",$keyx);
 
-			echo "<a href=offer.php?txid=".$txid.">[ ".$keyx."</font></a>";
+			echo "<a href=offer.php?txid=".$txid.">".$xxx." ".$keyx."</font></a>";
 			
 			echo "</h4></div>";
 				
