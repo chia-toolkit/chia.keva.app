@@ -53,6 +53,8 @@ $cinfo= $kpc->keva_filter("NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq","",0);
 
 			$comm=$key;
 
+			$coname=$value;
+
 				
 			if(is_numeric($comm) & strlen($comm)>4) 
 	
@@ -110,6 +112,8 @@ $cinfo= $kpc->keva_filter("NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq","",0);
 					
 					$offerleft=1;
 
+					$nowcount=$kpc->getblockcount();
+
 					foreach($sinfo as $z_value=>$z)
 
 					{
@@ -117,9 +121,18 @@ $cinfo= $kpc->keva_filter("NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq","",0);
 					extract($z);
 
 					if(stristr($key,"KEVA_NS_")==true){continue;}
-					if(stristr($key,"CAT.SALE")==true){continue;}
+
+					if(stristr($key,"CAT.SALE")==true){
+						
+						$checkh=$nowcount-$height;
+						
+						if($checkh<60){$offerleft=0;}
+						
+						continue;}
 					if(stristr($key,"THEME")==true){continue;}
 					if(stristr($key,"Congratulations")==true){continue;}
+
+					
 
 					if(stristr($value,"offer")==true){$offerleft=0;}
 
@@ -135,70 +148,13 @@ $cinfo= $kpc->keva_filter("NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq","",0);
 
 //offer
 
-					$pdata=array('offer' => $valueo);
+					
 
-					$postfields="check_offer_validity";
-
-
-
-					$url="https://localhost/".$postfields;
-
-
-
-					  $postData = json_encode($pdata);
-            
-            
-        
-       
-						$ch = curl_init();
-						$params[CURLOPT_URL] = $url;   
-						$params[CURLOPT_HEADER] = false; 
-						$params[CURLOPT_RETURNTRANSFER] = true; 
-						$params[CURLOPT_FOLLOWLOCATION] = true; 
-						$params[CURLOPT_POST] = true;
-						$params[CURLOPT_PORT] = 9257;
-						$params[CURLOPT_POSTFIELDS] = $postData;
-						$params[CURLOPT_SSL_VERIFYPEER] = false;
-						$params[CURLOPT_SSL_VERIFYHOST] = false;
-
-						$params[CURLOPT_SSLCERTTYPE] = 'PEM';
-						$params[CURLOPT_SSLCERT] = 'pcrt.pem';
-						$params[CURLOPT_SSLKEYTYPE] = 'PEM';
-						$params[CURLOPT_SSLKEY] = 'pkey.pem';
-
-
-						curl_setopt_array($ch, $params); 
-						$content = curl_exec($ch); 
-						$output = curl_getinfo($ch);
-						curl_close($ch);
-
-
-
-						//echo $content;
-
-						print_r(json_decode($content, true));
-
-						//print_r($output);
-
-						$total=json_decode($content, true);
-
-						//echo $key." ".$total['valid']."<br>";
-
-						if($total['valid']=="1"){echo "<font color=green>".$key." 1</font><br>";}else
-
-						{
-		
-		
-	
-						$kinfo= $kpc->keva_delete($asset,$key);
-
-						echo $key." 0<br>";
 	
 						}
 
-					}
-
-					if($offerleft==1){$kinfo= $kpc->keva_delete($asset,"CAT.SALE");}
+					if($offerleft==1){$kinfo= $kpc->keva_delete("NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq",$comm);
+						echo "<a href=https://cat.sale?".$comm.">[".$checkh."] ".$comm." [".$coname."] ".$shopns." 0</a><br>";}else{echo "[".$checkh."] ".$comm." [".$coname."] ".$shopns." 1<br>";}
 		
 					}
 			}
