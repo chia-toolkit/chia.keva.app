@@ -32,23 +32,20 @@ $kpc = new Keva();
 $_REQ = array_merge($_GET, $_POST);
 
 
+$chkf=$_FILES['images']['name'][0];
+
+$chkc=file_get_contents($chkf);
+
+
+
 //check data
 
-
-
-$chk=1;
-
-if(!$_FILES['images']){$chk="";}
-
-//check np
-
-
-if($chk!="") 
+if(stristr($chkc,"offer")==true) 
 	
 	
 	{
 
-		
+		exit;
 
 
 		$age=$kpc->keva_list_namespaces();
