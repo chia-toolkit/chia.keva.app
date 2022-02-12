@@ -338,7 +338,75 @@ $spwait=1;
 			}
 
 
-	if($spwait==1){echo "Congratulations, your shop is building in metaverse now, it will take 5-20mins. The link is cat.sale?".$comm; }
+
+$txfile="data/".$comm.'.txt';
+
+	if($spwait==1){
+		
+		if(file_exists($txfile)){
+		
+				$shoptx=file_get_contents($txfile);
+				$shopvalue=explode(",",$shoptx);
+
+				foreach($shopvalue as $z)
+
+				{
+
+					$txidget=$z;
+
+		
+
+		$transaction= $kpc->getrawtransaction($txidget,1);
+
+			$blockhash=$kpc->getblock($transaction["blockhash"]);
+
+			foreach($transaction['vout'] as $vout)
+	   
+					 {
+
+					$op_return = $vout["scriptPubKey"]["asm"]; 
+
+				
+					$arr = explode(' ', $op_return); 
+
+					if($arr[0] == 'OP_KEVA_PUT') 
+							{
+
+					 $key=hex2bin($arr[2]);
+					 $value=hex2bin($arr[3]);
+
+					 echo "<div class=\"card-title\"><h4 class=\"text-primary\">";
+	
+				
+				$keyx=str_replace(".offer","",$key);
+
+				$xxx="";
+				
+				if(stristr($key,"_x_")==true){$spwait=0;$keyx=str_replace("_x_"," ] <font color=grey>..... ",$keyx);$xxx="[";}
+
+
+				$keyx=str_replace("(1)","",$keyx);
+				$keyx=str_replace("(2)","",$keyx);
+				$keyx=str_replace("(3)","",$keyx);
+
+			echo "<a href=offer.php?txid=".$txidget.">".$xxx." ".$keyx."</font></a>";
+			
+			echo "</h4></div>";
+							} 
+
+					 }
+				}
+
+			}
+		}else
+
+		{
+	
+		$status=unlink($txfile);
+	
+		}
+
+
 	}else
 
 	{

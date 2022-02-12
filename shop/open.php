@@ -161,6 +161,8 @@ $name=0;
 
 $shopns="SELL ";
 
+$shoptx="";
+
 foreach($_FILES['images']['tmp_name'] as $x)
 
 {
@@ -174,6 +176,8 @@ $offerf=$fv;
 $fv=$fv;
 
 	$shopitem=$kpc->keva_put($goodname,$fk,$fv);
+
+	$shoptx=$shoptx.",".$shopitem['txid'];
 
 $status=unlink($x);
 
@@ -230,6 +234,7 @@ curl_close($curl);
 
 
 }
+
 
 //theme
 
@@ -303,9 +308,14 @@ if(!$sn){$bigstep="New Please Get again (10-30min)";}else{
 
 $bigstep="CAT.SALE SHOP ".$sn." open now. <font color=\"8CEA00\"></font> You can open <a href=https://cat.sale?".$sn."><font color=\"8CEA00\">cat.sale?".$sn."</font></a> to see your shop and share to everyone.(It will take 0-30min to write on the blockchain.)";}
 
-echo "<br><br>".$bigstep."<br><br>";
+//echo "<br><br>".$bigstep."<br><br>";
 
-								
+//puttx
+
+$txfile="data/".$sn.'.txt';
+
+file_put_contents($txfile,$shoptx);
+					
 
 $kva=$_REQ["kvadd"];
 
