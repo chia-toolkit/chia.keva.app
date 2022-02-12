@@ -307,7 +307,7 @@ echo "<br><br>".$bigstep."<br><br>";
 
 								
 
-$kva="";
+$kva=$_REQ["kvadd"];
 
 if(strlen($kva)==34){
 	
@@ -320,6 +320,10 @@ if(strlen($kva)==34){
 		$kva="VQAs2uaphiEKNgAV5ehHSqdmRHwBq13rz9";
 		$agex=$kpc->keva_put($goodname,"Congratulations",$bigstep,$kva); 
 
+		
+
+		}
+
 		$saleshop="NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq";
 
 		$ages=$kpc->keva_put($saleshop,$sn,$shopns);
@@ -331,11 +335,20 @@ if(strlen($kva)==34){
 		echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
 
 
-		}
-
 	}
 
-echo "<div style=\"display:block;width:100%;font-family: coda_regular, arial, helvetica, sans-serif;\"><ul style=\"border: 0px solid #59fbea;\"><li style=\"text-align:center;list-style:none;color: #28f428;font-size: 30px;letter-spacing:4px;margin-top:10px;padding-top:5px;height:45px;background-color:#0b0c0d;}\"><a href=/ style=\"color: #28f428;text-decoration: none;\">CAT.SALE</a></li></ul></div>";
+echo "<div style=\"display:block;width:100%;font-family: coda_regular, arial, helvetica, sans-serif;\"><ul style=\"border: 0px solid #59fbea;\"><li style=\"text-align:center;list-style:none;color: #28f428;font-size: 30px;letter-spacing:4px;margin-top:10px;padding-top:5px;height:45px;background-color:#0b0c0d;}\"><a href=/ style=\"color: #28f428;text-decoration: none;\">CAT.SALE</a> ";
+
+if($_REQ["k"]==1){echo "<a href=open.php?k=2>[FAST]</a> <a href=open.php>[EASY]</a> <a href=open.php?k=1><font color=yellow>[PRO]</font></a>";}
+
+if($_REQ["k"]==2){echo "<a href=open.php?k=2><font color=yellow>[FAST]</font></a> <a href=open.php>[EASY]</a> <a href=open.php?k=1>[PRO]</a>";}
+
+if(!$_REQ["k"]){echo "<a href=open.php?k=2>[FAST]</a> <a href=open.php><font color=yellow>[EASY]</font></a> <a href=open.php?k=1>[PRO]</a>";}
+
+
+
+
+echo "</li></ul></div>";
 
 	//upload
 
@@ -343,7 +356,13 @@ echo "<div style=\"display:block;width:100%;font-family: coda_regular, arial, he
 
 			echo "<br><form name=form1 action=\"\" method=\"post\" enctype=\"multipart/form-data\" onSubmit=\"return closebut()\">";
 
-					echo "<center>[ X ] <input name=\"shopns\" class=\"textarea-inherit\"  style=\"width:50%;border: 1px solid #59fbea;font-family: coda_regular, arial, helvetica, sans-serif;-webkit-appearance: none;-webkit-border-radius:0;height:48px;font-size: 24px; background-color: rgb(11, 12, 13);color: #ddd;padding-left:10px;padding-top:2px;margin-top:10px;\"   placeholder=\"SHOP NAME\"><br>";
+					
+
+					if(!$_REQ["k"] or $_REQ["k"]==1){echo "<center>[ X ] <input name=\"shopns\" class=\"textarea-inherit\"  style=\"width:50%;border: 1px solid #59fbea;font-family: coda_regular, arial, helvetica, sans-serif;-webkit-appearance: none;-webkit-border-radius:0;height:48px;font-size: 24px; background-color: rgb(11, 12, 13);color: #ddd;padding-left:10px;padding-top:2px;margin-top:10px;\"   placeholder=\"SHOP NAME\"><br>";}
+
+					if($_REQ["k"]==1){
+
+					echo "<center>[ X ] <input name=\"kvadd\" class=\"textarea-inherit\"  style=\"width:50%;border: 1px solid #59fbea;font-family: coda_regular, arial, helvetica, sans-serif;-webkit-appearance: none;-webkit-border-radius:0;height:48px;font-size: 24px; background-color: rgb(11, 12, 13);color: #ddd;padding-left:10px;padding-top:2px;margin-top:10px;\"   placeholder=\"KEVACOIN ADDRESS\"><br>";}
 
 			for($i=1; $i<=$max_no_img; $i++){
 
@@ -693,10 +712,10 @@ class Crypto
 
 ?>
 
-This is free chia offer shop tool for everyone. Upload 1-8 offers, you will get a shop code like <a href=https://cat.sale?65039731><font color=\"8CEA00\">65039731</font></a> and you can share your shop with the link <a href=https://cat.sale?65039731><font color=\"8CEA00\">cat.sale?65039731</font></a><br><br>
+This is free offer shortcode create tool for everyone. Upload 1-8 offers, you will get a code like <a href=https://cat.sale?65039731><font color=\"8CEA00\">65039731</font></a>. All the offers are in one number on the blockchain, simple and easy to remember. You can share your number with the link <a href=https://cat.sale?65039731><font color=\"8CEA00\">cat.sale?65039731</font></a><br><br>
 
 
-All the datas are on the <a href=https://kevacoin.org/><font color=\"8CEA00\">kevacoin</font></a> blockchain. The code is read-only. If you have <a href=https://kevacoin.org/><font color=\"8CEA00\">kevacoin wallet</font></a>, you can follow you shop number and repost the offer to your own space.<br><br>
+The PRO mode support manage the shop if you have a kevacoin address. All the datas stored on the <a href=https://kevacoin.org/><font color=\"8CEA00\">kevacoin</font></a> blockchain. You can also follow the number and chat/repost the offer.<br><br>
 
 <br><br><a href=https://cat.sale>cat.sale</a>
 

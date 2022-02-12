@@ -225,7 +225,7 @@ $url="https://localhost/".$postfields;
 
 //echo $content;
 
-//print_r(json_decode($content, true));
+print_r(json_decode($content, true));
 
 //print_r($output);
 
@@ -239,7 +239,7 @@ if($total['valid']=="1"){echo "<font color=green>".$key." 1</font><br>";}else
 		
 		
 	
-	$kinfo= $kpc->keva_delete("NcsfukSWRteWmCRRNFCRVLfX9AaYXBkKLt",$key);
+	//$kinfo= $kpc->keva_delete("NcsfukSWRteWmCRRNFCRVLfX9AaYXBkKLt",$key);
 
 	echo $key." 0<br>";
 	

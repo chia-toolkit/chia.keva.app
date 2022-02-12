@@ -54,7 +54,7 @@ echo "<br><input type=\"submit\" id=\"btn\" value=\"SUBMIT\" style=\"border: 1px
 			
 			echo "</form></center>";
 
-			echo "<br><br>If you have a <a href=https://kevacoin.org/><font color=\"8CEA00\">kevacoin wallet</font></a>, you can add a key CAT.SALE with the value your shop name in your space. Then submit the namespace address or shortcode here. Your shop will be listed on the cat.sale and you can manage your shop by self. If you removed the key CAT.SALE, your shop will be closed too.<br><br><a href=https://cat.sale>cat.sale</a>";
+			echo "<br><br>If you have a <a href=https://kevacoin.org/><font color=\"8CEA00\">kevacoin wallet</font></a>, you can add a key CAT.SALE with the value your shop name in your space. Then submit the namespace address or shortcode here. Your shop will be listed on the cat.sale and you can manage your shop by self. If you removed the key CAT.SALE, your shop will be closed too.<br><br>You can also get a cat.sale space <a href=open.php?k=1>here</a>, and manage your shop by self.<br><br><a href=https://cat.sale>cat.sale</a>";
 
 
 			exit;
@@ -214,7 +214,85 @@ $namespaceb=$kpc->keva_get($shopns,"_KEVA_NS_");
 
 if(!$comm){echo "KEVA SHORTCODE GET FAILED";exit;}
 
+//check
+
+$chklogo=$kpc->keva_get($shopns,"SHOPLOGO");
+
+if($chklogo['value']!=""){
+
+	$logonft=$chklogo['value'];
+
+
+	if(is_numeric($logonft) & strlen($logonft)>4) 
+	
+	
+	{
+
+
+
+$blength=substr($logonft , 0 , 1);
+$block=substr($logonft , 1 , $blength);
+$btxn=$blength+1;
+$btx=substr($logonft , $btxn);
+
+
+
+
+
+$blockhash= $kpc->getblockhash(intval($block));
+
+
+$blockdata= $kpc->getblock($blockhash);
+
+
+$txa=$blockdata['tx'][$btx];
+
+if(!$txa) {$url ="/";echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";}
+
+				
+		$transaction= $kpc->getrawtransaction($txa,1);
+
+					foreach($transaction['vout'] as $vout)
+	   
+						  {
+
+					$op_return = $vout["scriptPubKey"]["asm"]; 
+
+				
+					$arr = explode(' ', $op_return); 
+
+					if($arr[0] == 'OP_KEVA_NAMESPACE') 
+								{
+
+								 $cona=$arr[0];
+								 $cons=$arr[1];
+								 $conk=$arr[2];
+
+						$freeadd=$vout["scriptPubKey"]["addresses"][0];
+								
+
+								}
+						  }
+				
+				$logons=Base58Check::encode( $cons, false , 0 , false);
+
+
+
+
+	}
+
+
+
+$getlogo=$kpc->keva_get($logons,$comm);
+
+if($getlogo['value']!=""){$shopname=$shopname."||".$logonft;}
+
+}
+
 //put
+
+
+
 
 		$saleshop="NgxukCDAv2mw9CJJRG5Y8YBZuopbgbP67z";
 
@@ -572,10 +650,6 @@ class Crypto
 
 ?>
 
-This is free chia offer shop tool for everyone. Upload 1-8 offers, you will get a shop code like <a href=https://cat.sale?65039731><font color=\"8CEA00\">65039731</font></a> and you can share your shop with the link <a href=https://cat.sale?65039731><font color=\"8CEA00\">cat.sale?65039731</font></a><br><br>
-
-
-All the datas are on the <a href=https://kevacoin.org/><font color=\"8CEA00\">kevacoin</font></a> blockchain. The code is read-only. If you have <a href=https://kevacoin.org/><font color=\"8CEA00\">kevacoin wallet</font></a>, you can follow you shop number and repost the offer to your own space.<br><br>
 
 <br><br><a href=https://cat.sale>cat.sale</a>
 

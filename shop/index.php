@@ -13,6 +13,8 @@ $_REQ = array_merge($_GET, $_POST);
 
 if(isset($_SERVER["QUERY_STRING"])){$comm=trim($_SERVER["QUERY_STRING"]);}
 
+if($_REQ["num"]!=""){$comm=$_REQ["num"];}
+
 
 if(!$comm){
 
@@ -20,13 +22,13 @@ if(!$comm){
 
 echo "<html lang=\"en\" dir=\"ltr\"></html><head><title>GALAXY CAT.SALE</title><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">";
 
-echo "<style>html,body,.site_font {font-family: coda_regular, arial, helvetica, sans-serif;}html, body{background-color: #0b0c0d;color: #fff;font-size: 15px;margin: 0 auto -100px;padding:0;}textarea-inherit {width: 90%;overflow: auto;word-break: break-all;}::-webkit-scrollbar { width: 0 !important }a:link,a:visited,a:active{transition:0.5s;color: #28f428;text-decoration: none;}a:hover { color:yellow; }input[type=\"text\"],input[type=\"submit\"] {font-size: 18px;}input[type=\"text\"],input[type=\"submit\"] {border: 1px solid #59fbea;font-family: coda_regular, arial, helvetica, sans-serif;-webkit-appearance: none;-webkit-border-radius: 0;height:42px;}input[type=\"text\"] {background-color: rgb(11, 12, 13);color: #ddd;width:50%;padding-left:5px;}input[type=\"submit\"] {background-color: rgb(0, 79, 74);color: #59fbea;padding: 5px 22px;margin-left:3px;height:45px;}div{margin:1px;border:0;padding:0;}#door {margin-top:0px;font-size: 15px;}#newworld{margin-top:100px;font-size: 15px;}#tech {text-align: left;vertical-align:middle;border: 0px solid #59fbea;font-family: coda_regular, arial, helvetica, sans-serif;-webkit-appearance: none;-webkit-border-radius: 0;font-size:24px;width:98%;}.crt {animation: textShadow 0.00s infinite;}#nav{/*width: 80%;*/margin: 0 auto;border: 0px solid #59fbea;}ul,li {margin: 0px;padding: 0px;list-style: none; }ul { display: flex;flex-direction: row;flex-wrap: wrap;}@keyframes fadeIn {0% {top:5%;}100% {top: 100%;}}li{border: 1px solid #59fbea;width: auto;height:45px;word-break: break-all;background-color: rgb(0, 79, 74);text-align: center;margin-top: 10px;margin-right:5px;margin-left:1px;padding-top:20px;padding-left:2px;padding-right:18px;flex:auto;}p{margin-left: 5px;}#universe {font-size: 18px;position:absolute;}p{color:#ccc;margin-top:2px;}table {color:#999;table-layout: fixed;width: 100%;border-collapse: collapse;border: 1px solid #999;}tr td{color:#999;border: 1px solid #ccc;}</style>";
+echo "<style>html,body,.site_font {font-family: coda_regular, arial, helvetica, sans-serif;}html, body{background-color: #0b0c0d;color: #fff;font-size: 15px;margin: 0 auto -100px;padding:0;}textarea-inherit {width: 90%;overflow: auto;word-break: break-all;}::-webkit-scrollbar { width: 0 !important }a:link,a:visited,a:active{transition:0.5s;color: #28f428;text-decoration: none;}a:hover { color:yellow; }input[type=\"text\"],input[type=\"submit\"] {font-size: 18px;}input[type=\"text\"],input[type=\"submit\"] {border: 1px solid #59fbea;font-family: coda_regular, arial, helvetica, sans-serif;-webkit-appearance: none;-webkit-border-radius: 0;height:42px;}input[type=\"text\"] {background-color: rgb(11, 12, 13);color: #ddd;width:50%;padding-left:5px;}input[type=\"submit\"] {background-color: rgb(0, 79, 74);color: #59fbea;padding: 5px 22px;margin-left:3px;height:45px;}div{margin:1px;border:0;padding:0;}#door {margin-top:0px;font-size: 15px;}#newworld{margin-top:100px;font-size: 15px;}#tech {text-align: left;vertical-align:middle;border: 0px solid #59fbea;font-family: coda_regular, arial, helvetica, sans-serif;-webkit-appearance: none;-webkit-border-radius: 0;font-size:24px;width:98%;}.crt {animation: textShadow 0.00s infinite;}#nav{/*width: 80%;*/margin: 0 auto;border: 0px solid #59fbea;}ul,li {margin: 0px;padding: 0px;list-style: none; }ul { display: flex;flex-direction: row;flex-wrap: wrap;}@keyframes fadeIn {0% {top:5%;}100% {top: 100%;}}li{border: 1px solid #59fbea;width: auto;height:45px;word-break: break-all;background-color: rgb(0, 79, 74);text-align: center;margin-top: 10px;margin-right:5px;margin-left:1px;padding-top:15px;padding-left:2px;padding-right:18px;flex:auto;}p{margin-left: 5px;}#universe {font-size: 18px;position:absolute;}p{color:#ccc;margin-top:2px;}table {color:#999;table-layout: fixed;width: 100%;border-collapse: collapse;border: 1px solid #999;}tr td{color:#999;border: 1px solid #ccc;}</style>";
 
 echo "</head>";
 
 echo "<body style=\"background-color: #0b0c0d;\">";
 
-echo "<div style=\"display:block;width:100%;font-family: coda_regular, arial, helvetica, sans-serif;\"><ul style=\"border: 0px solid #59fbea;\"><li style=\"text-align:center;list-style:none;color: #28f428;font-size: 30px;letter-spacing:4px;margin-top:10px;padding-top:5px;height:45px;background-color:#0b0c0d;}\"><a href=/ style=\"color: #28f428;text-decoration: none;\">CAT.SALE</a></li></ul></div>";
+
 
 echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\">";
 
@@ -96,24 +98,30 @@ arsort($totalass);
 
 		echo "<ul>";
 
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=/ style=\"font-size:18px;color:#28f428;text-decoration: none;\"><b>CAT.SALE</b></a></p></li></ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=open.php><font color=yellow size=4><b>OPEN SHOP</b></a></p></li></ul>";
+echo "<ul><span><form action=\"\" method=\"post\" ><input type=\"text\" name=\"num\" maxlength=\"15\" placeholder=\"SHOP NUMBER\" style=\"width:150px;height:52px;margin-top:10px;padding-top:5px;margin-right:5px;\"></form></span></ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=offer.php><font color=yellow size=4><b>UPLOAD OFFER</b></a></p></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=open.php><font color=yellow size=4><b>CREATE OFFER SHORTCODE</b></a></p></li></ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=code.php><font color=yellow size=4><b>SHOPCODE+</b></a></p></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=offer.php><font color=yellow size=4><b>UPLOAD OFFER</b></a></p></li></ul>";
+
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=code.php><font color=yellow size=4><b>SHOPCODE+</b></a></p></li></ul>";
+
+
+
+
 
 
 //link
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://chialisp.com/docs/tutorials/offers_gui_tutorial/><font size=4><font color=\"#ccc\">[ HELP ] </font>OFFERS TUTORIAL</a></p></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://chialisp.com/docs/tutorials/offers_gui_tutorial/><font size=4><font color=\"#ccc\">[ TXT ] </font>OFFERS TUTORIAL</a></p></li></ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://hash.green/dex><font size=4><font color=\"#ccc\">[ DEX ] </font>HASH.GREEN</a></p></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://hash.green/dex><font size=4><font color=\"#ccc\">[ DEX ] </font>HASH.GREEN</a></p></li></ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://offerbin.io/><font size=4><font color=\"#ccc\">[ DEX ] </font>OFFERBIN.IO</a></p></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://offerbin.io/><font size=4><font color=\"#ccc\">[ DEX ] </font>OFFERBIN.IO</a></p></li></ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://offerpool.io/><font size=4><font color=\"#ccc\">[ DEX ] </font>OFFERPOOL.IO</a></p></li></ul>";
-
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://offerpool.io/><font size=4><font color=\"#ccc\">[ DEX ] </font>OFFERPOOL.IO</a></p></li></ul></ul><ul>";
 
 //color
 
@@ -137,8 +145,12 @@ $vchk=substr($value, -1);
 
 if($vchk=="/"){$value=substr_replace($value ,"",-1);}
 
+$spvalue=explode("||",$value);
 
-echo "<ul><li style=\"background-color:".randColor().";height:40px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=?".$key."><font color=\"#ccc\" size=4>[ ".$key." ] </font>".$value."</a></p></li></ul>";
+if(!$spvalue[1]){$splogo="<img src=nft/gold.png width=40 title=".$key." style=\"vertical-align:middle\">";}
+else{$splogo="<img src=nft/".$spvalue[1].".png width=40 title=".$key." style=\"vertical-align:middle\">";}
+
+echo "<ul><li style=\"background-color:".randColor().";height:45px;display:block;text-align:left;padding-top:5px;\"><p style=\"padding-left:5px;\"><a href=?".$key.">".$splogo."<font color=\"#ccc\" size=4> </font>".$spvalue[0]."</a></p></li></ul>";
 
 
 			
@@ -265,7 +277,13 @@ echo "<div><div id=\"post-content\">";
 
 echo "<div class=\"card-text\">";
 
-echo "This is CHIA OFFER shop, you can use chia wallet to accept offers.";
+$checkann=$kpc->keva_get($shopns,"SHOPANN");
+
+if(!$checkann['value']){
+
+echo "This is CHIA OFFER shop, you can use chia wallet to accept offers.";}
+else
+	{echo $checkann['value'];}
 
 echo "</div></div></div></div></div>";
 
@@ -285,18 +303,12 @@ $spwait=1;
 			
 			extract($x);
 
-			if(stristr($key,"KEVA_NS_")==true){continue;}
+			if(stristr($value,"offer")==false){continue;}
 			if(stristr($key,"THEME")==true){continue;}
-			if(stristr($key,"CAT.SALE")==true){continue;}
-			if(stristr($key,"Congratulations")==true){continue;}
-
-		
-			$value=hex2bin($value);
-
 
 
 			$key=trim($key);
-			$keylink=bin2hex($key);
+	
 
 
 			$valuex=str_replace("\n","<br>",$value);
@@ -305,8 +317,6 @@ $spwait=1;
 
 				echo "<div class=\"card-title\"><h4 class=\"text-primary\">";
 	
-				$keyb=bin2hex($key);
-				$valueb=bin2hex($valuex);
 				
 				$keyx=str_replace(".offer","",$key);
 
