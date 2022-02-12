@@ -120,7 +120,7 @@ if(strlen($freeadd)==64) {
 	
 	echo "<br><br>".$bigdata;
 
-	echo "<br><br>Check ".$catn." offer on [<a href=https://offerbin.io/?o=".$catn." target=_blank><font color=\"8CEA00\">offerbin.io</font></a>] [<a href=https://hash.green/dex/ target=_blank><font color=\"8CEA00\">hash.green</font></a>] [<a href=/offer.php?cat=".$catn." target=_blank><font color=\"8CEA00\">chia.keva.app/offer</font></a>]";
+	echo "<br><br>Upload ".$catn." offer [<a href=https://offerbin.io/?o=".$catn." target=_blank><font color=\"8CEA00\">offerbin.io</font></a>] [<a href=https://hash.green/dex/ target=_blank><font color=\"8CEA00\">hash.green</font></a>] [<a href=https://cat.sale/offer target=_blank><font color=\"8CEA00\">cat.sale/offer</font></a>]";
 
 
 	}
@@ -129,8 +129,11 @@ if(strlen($freeadd)==64) {
 
 ?>
 <br><br>
+Create offer shortcode [<a href=https://cat.sale target=_blank><font color="8CEA00">cat.sale</font></a>]
 
-Search CATs [<a href=https://keva.one/search?sq=cats target=_blank><font color="8CEA00">keva.one/search</font></a>] [<a href=https://xchtoken.org/ target=_blank><font color="8CEA00">xchtoken.org</font></a>]
+<br><br>
+
+Search CATs [<a href=https://www.taildatabase.com/ target=_blank><font color="8CEA00">taildb</font></a>] [<a href=https://xchtoken.org/ target=_blank><font color="8CEA00">xchtoken</font></a>] [<a href=https://www.spacescan.io/xch/tokens/cat1/topTokens target=_blank><font color="8CEA00">spacescan</font></a>] [<a href=https://keva.one/search?sq=cats target=_blank><font color="8CEA00">keva.one</font></a>]
 
 <?php
 $a=filemtime("node.log");
@@ -271,10 +274,14 @@ curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
+<tr><td>Offer</td><td align=left><font color="8CEA00">offerpool.io</font></td></tr>
+
+<tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
+
 <tr><td>Free Chia</td><td align=left><font color="8CEA00">faucet.chia.net</font></td></tr>
 <tr><td>Free Chia</td><td align=left><font color="8CEA00">chia2start.eu<font></td></tr>
 <tr><td>Free Chia</td><td align=left><font color="8CEA00">xchfaucet.togatech.org</font></td></tr>
-<tr><td>Free Chia Game</td><td align=left><a href=https://ipfs.keva.app/ipfs/Qme3LKgGczUY44tDFC2ovFjGyFzsr9R7i8uiDjkLZVXqST><font color="8CEA00">Legend of Satoshi</font></a></td></tr>
+<tr><td>Free Chia</td><td align=left><font color="8CEA00">faucet.mojowhale.com</font></td></tr>
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
@@ -284,6 +291,7 @@ curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3
 <tr><td>Calculator</td><td align=left><font color="8CEA00">lite.profit-mine.com/en/hdd</font></td></tr>
 <tr><td>Calculator</td><td align=left><font color="8CEA00">chiacalculator.com</font></td></tr>
 <tr><td>Calculator</td><td align=left><font color="8CEA00">chia.tt</font></td></tr>
+<tr><td>Calculator</td><td align=left><font color="8CEA00">graphchia.com</font></td></tr>
 
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
@@ -300,6 +308,7 @@ curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
+<tr><td>Clisp</td><td align=left><font color="8CEA00">chialisp.com/docs</font></td></tr>
 <tr><td>Clisp</td><td align=left><font color="8CEA00">clisp.surrealdev.com</font></td></tr>
 
 
