@@ -197,14 +197,14 @@ $fp = fsockopen($host,$port,$errCode,$errStr,$waitTimeoutInSeconds);
 
 if(!$fp){ 
 
-		$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"FF5733\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";	
+		$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"FF5733\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[9]."]</td></tr>";	
 		
 		$ipw=$word[1]." ";
 
 			}
 			else{
 
-			$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"8CEA00\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[10]."]</td></tr>";
+			$ipo="<tr><td>".$word[1]."</td><td align=center><font color=\"8CEA00\">".$port."</font></td><td  align=center style=\"color:#FFD306;\"> [".$word[9]."]</td></tr>";
 			
 			
 			
@@ -275,6 +275,7 @@ curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
 <tr><td>Offer</td><td align=left><font color="8CEA00">offerpool.io</font></td></tr>
+<tr><td>Offer</td><td align=left><font color="8CEA00">dexie.space</font></td></tr>
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
