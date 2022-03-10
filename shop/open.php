@@ -163,13 +163,75 @@ $shopns="SELL ";
 
 $shoptx="";
 
+$offerchk=1;
+
 foreach($_FILES['images']['tmp_name'] as $x)
 
 {
+
 if(!$x){continue;}
+
 $fk=$_FILES['images']['name'][$name];
 
 $fv=file_get_contents($x);
+
+
+//check offer
+
+			$pdata=array('offer' => $fv);
+
+					$postfields="check_offer_validity";
+
+
+
+					$url="https://localhost/".$postfields;
+
+
+
+					  $postData = json_encode($pdata);
+            
+            
+        
+       
+						$ch = curl_init();
+						$params[CURLOPT_URL] = $url;   
+						$params[CURLOPT_HEADER] = false; 
+						$params[CURLOPT_RETURNTRANSFER] = true; 
+						$params[CURLOPT_FOLLOWLOCATION] = true; 
+						$params[CURLOPT_POST] = true;
+						$params[CURLOPT_PORT] = 9256;
+						$params[CURLOPT_POSTFIELDS] = $postData;
+						$params[CURLOPT_SSL_VERIFYPEER] = false;
+						$params[CURLOPT_SSL_VERIFYHOST] = false;
+
+						$params[CURLOPT_SSLCERTTYPE] = 'PEM';
+						$params[CURLOPT_SSLCERT] = 'pcrt.pem';
+						$params[CURLOPT_SSLKEYTYPE] = 'PEM';
+						$params[CURLOPT_SSLKEY] = 'pkey.pem';
+
+
+						curl_setopt_array($ch, $params); 
+						$content = curl_exec($ch); 
+						$output = curl_getinfo($ch);
+						curl_close($ch);
+
+
+
+						//echo $content;
+
+						//print_r(json_decode($content, true));
+
+						//print_r($output);
+
+						$total=json_decode($content, true);
+
+						//echo $key." ".$total['valid']."<br>";
+
+						if(!$total['valid']){echo $_FILES['images']['name'][$name]." is not valid.<br>";continue;}else
+							
+						{
+
+//put
 
 $offerf=$fv;
 
@@ -208,7 +270,7 @@ $pdata=array('offer' => $offerf);
 
 $postData = http_build_query($pdata);
 
-$authorization="Authorization:Bearer token";
+$authorization="Authorization:Bearer ";
 				$curl = curl_init();
 
 				$url="https://hash.green/api/v1/orders";
@@ -231,11 +293,13 @@ $err = curl_error($curl);
 
 curl_close($curl);
 
+						$offerchk=0;}
+
 
 
 }
 
-
+if($offerchk==0){
 //theme
 
 $thenft=$kpc->keva_put($goodname,"THEME","offer");
@@ -319,6 +383,8 @@ file_put_contents($txfile,$shoptx);
 
 $kva=$_REQ["kvadd"];
 
+$namesns=$kpc->keva_put($goodname,"_KEVA_NS_",$sn);
+
 if(strlen($kva)==34){
 	
 		
@@ -334,6 +400,8 @@ if(strlen($kva)==34){
 
 		}
 
+		
+
 		$saleshop="NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq";
 
 		$ages=$kpc->keva_put($saleshop,$sn,$shopns);
@@ -344,6 +412,8 @@ if(strlen($kva)==34){
 
 		echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
 
+
+	}
 
 	}
 

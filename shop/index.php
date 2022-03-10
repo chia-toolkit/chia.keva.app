@@ -9,7 +9,12 @@ $_REQ = array_merge($_GET, $_POST);
 
 
 
+//cat
 
+$cinfo="NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq";
+
+
+$kinfo="NgxukCDAv2mw9CJJRG5Y8YBZuopbgbP67z";
 
 if(isset($_SERVER["QUERY_STRING"])){$comm=trim($_SERVER["QUERY_STRING"]);}
 
@@ -32,12 +37,7 @@ echo "<body style=\"background-color: #0b0c0d;\">";
 
 echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\">";
 
-//cat
 
-$cinfo="NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq";
-
-
-$kinfo="NgxukCDAv2mw9CJJRG5Y8YBZuopbgbP67z";
 
 
 //list
@@ -122,6 +122,8 @@ echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block
 echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://offerbin.io/><font size=4><font color=\"#ccc\">[ DEX ] </font>OFFERBIN.IO</a></p></li></ul>";
 
 echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://offerpool.io/><font size=4><font color=\"#ccc\">[ DEX ] </font>OFFERPOOL.IO</a></p></li></ul></ul><ul>";
+
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://dexie.space><font size=4><font color=\"#ccc\">[ DEX ] </font>DEXIE.SPACE</a></p></li></ul></ul><ul>";
 
 //color
 
@@ -297,6 +299,8 @@ echo "<div class=\"card-body\">";
 
 $spwait=1;
 
+$offerchk=1;
+
 	foreach($info as $x_value=>$x)
 
 			{
@@ -312,6 +316,59 @@ $spwait=1;
 
 
 			$valuex=str_replace("\n","<br>",$value);
+
+			//check offer
+
+			$pdata=array('offer' => $value);
+
+					$postfields="check_offer_validity";
+
+
+
+					$url="https://localhost/".$postfields;
+
+
+
+					  $postData = json_encode($pdata);
+            
+            
+        
+       
+						$ch = curl_init();
+						$params[CURLOPT_URL] = $url;   
+						$params[CURLOPT_HEADER] = false; 
+						$params[CURLOPT_RETURNTRANSFER] = true; 
+						$params[CURLOPT_FOLLOWLOCATION] = true; 
+						$params[CURLOPT_POST] = true;
+						$params[CURLOPT_PORT] = 9256;
+						$params[CURLOPT_POSTFIELDS] = $postData;
+						$params[CURLOPT_SSL_VERIFYPEER] = false;
+						$params[CURLOPT_SSL_VERIFYHOST] = false;
+
+						$params[CURLOPT_SSLCERTTYPE] = 'PEM';
+						$params[CURLOPT_SSLCERT] = 'pcrt.pem';
+						$params[CURLOPT_SSLKEYTYPE] = 'PEM';
+						$params[CURLOPT_SSLKEY] = 'pkey.pem';
+
+
+						curl_setopt_array($ch, $params); 
+						$content = curl_exec($ch); 
+						$output = curl_getinfo($ch);
+						curl_close($ch);
+
+
+
+						//echo $content;
+
+						//print_r(json_decode($content, true));
+
+						//print_r($output);
+
+						$total=json_decode($content, true);
+
+						//echo $key." ".$total['valid']."<br>";
+
+						if(!$total['valid']){continue;}else{
 
 			
 
@@ -331,12 +388,14 @@ $spwait=1;
 
 			echo "<a href=offer.php?txid=".$txid.">".$xxx." ".$keyx."</font></a>";
 			
-			echo "</h4></div>";
+			echo "</h4></div>";$offerchk=0;}
 				
 					
 	
 			}
 
+
+if($offerchk==1){echo "All offer accepted.";$kinfo=$kpc->keva_delete($cinfo,$comm);}
 
 
 $txfile="data/".$comm.'.txt';
