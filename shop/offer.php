@@ -258,7 +258,7 @@ echo "<div style=\"display:block;width:100%;font-family: coda_regular, arial, he
 
 echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\">";
 
-			echo "&nbsp;<input type=\"file\" id=\"files\" name=\"file\"/><span class=\"readBytesButtons\"><button id=\"mybtn\">Read File</button></span><br><br>";
+			echo "&nbsp;<input type=\"file\" id=\"filesx\" name=\"filesx[]\" onchange=\"readmultifiles(this.files)\" multiple=\"\"/><br><br><div id=\"bag\"><ul/></div>";
 
 			echo "<form action=\"\" method=\"post\" >";	
 
@@ -266,9 +266,9 @@ echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\">";
 
 		
 
-			echo "<center><textarea name=\"newtitle\" rows=\"1\" style=\"width:99%;overflow:auto;word-break:break-all;\" id=\"byte_t\"></textarea><br>";
+			echo "<center><textarea name=\"newtitle\" rows=\"1\" style=\"width:99%;overflow:auto;word-break:break-all;\" id=\"newt\"></textarea><br>";
 			
-			echo "<textarea name=\"newasset\" rows=\"15\" style=\"width:99%;overflow:auto;word-break:break-all;\" id=\"byte_content\"></textarea></center>";
+			echo "<textarea name=\"newasset\" rows=\"15\" style=\"width:99%;overflow:auto;word-break:break-all;\" id=\"newc\"></textarea></center>";
 
 			
 			
@@ -282,7 +282,9 @@ echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\">";
 			echo "</form>";
 
 			echo "<br>&nbsp;*You can upload your offer file and click Read File, or copy your offer data and input title by self.";
-			echo "<br>&nbsp;*You can use <a href=https://kevacoin.org>kevacoin</a> app to upload offer file with tag #offer, then everyone could search \"offer\" find your file.<br><br>";
+			echo "<br>&nbsp;*You can use <a href=https://kevacoin.org>kevacoin</a> app to upload offer file with tag #offer, then everyone could search \"offer\" find your file.";
+			echo "<br>&nbsp;*You can use copy /b <span id=\"two\"></span> to merage file.<br><br>";
+			
 
 //cat
 
@@ -752,47 +754,50 @@ echo "</ul><ul><li style=\"background-color: rgb(0, 79, 74);display:block;height
 </div>
 
 <script>
-function readBlob(opt_startByte, opt_stopByte) {
 
-  var files = document.getElementById('files').files;
-  if (!files.length) {
-    alert('Please select a file!');
-    return;
-  }
-
-  var file = files[0];
-  var start = parseInt(opt_startByte) || 0;
-  var stop = parseInt(opt_stopByte) || file.size - 1;
-
-  var reader = new FileReader();
-
-  reader.onloadend = function(evt) {
-    if (evt.target.readyState == FileReader.DONE) { // DONE == 2
-      document.getElementById('byte_content').textContent = evt.target.result;
+window.onload = function() {
+    if (typeof window.FileReader !== 'function') {
+        alert("The file API isn't supported on this browser yet.");
     }
-  };
-
-  var blob = file.slice(start, stop + 1);
-  reader.readAsBinaryString(blob);
 }
 
-document.querySelector('.readBytesButtons').addEventListener('click', function(evt) {
-  if (evt.target.tagName.toLowerCase() == 'button') {
-    var startByte = evt.target.getAttribute('data-startbyte');
-    var endByte = evt.target.getAttribute('data-endbyte');
-    readBlob(startByte, endByte);
-  }
-}, false);
-
-  var div=document.getElementById('byte_t');
-  var myfile = document.getElementById('files');
-
-  mybtn.onclick = function () {
+function readmultifiles(files) {
+    var ul = document.querySelector("#bag>ul");
+    while (ul.hasChildNodes()) {
+        ul.removeChild(ul.firstChild);
+    }
 
 
-   div.innerHTML = div.innerHTML+myfile.files[0].name;
 
-  }
+    function setup_reader(file) {
+        var name = file.name;
+        var reader = new FileReader();
+        reader.onload = function(e) {
+            var bin = e.target.result; //get file content
+
+			var sp=bin.split("offer");
+
+			var two=document.getElementById("newt").value;
+
+			var two = two + '+' + name;
+
+			document.getElementById("two").innerHTML = two;
+
+			document.getElementById("newt").innerHTML = name;
+
+			document.getElementById("newc").innerHTML = 'offer'+sp[1];
+
+
+
+        }
+        reader.readAsText(file);
+    }
+
+     
+    for (var i = 0; i < files.length; i++) { setup_reader(files[i]);  }
+
+
+}
 
 
 </script>

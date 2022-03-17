@@ -102,11 +102,11 @@ echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block
 
 echo "<ul><span><form action=\"\" method=\"post\" ><input type=\"text\" name=\"num\" maxlength=\"15\" placeholder=\"SHOP NUMBER\" style=\"width:150px;height:52px;margin-top:10px;padding-top:5px;margin-right:5px;\"></form></span></ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=open.php><font color=yellow size=4><b>CREATE OFFER SHORTCODE</b></a></p></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=/open><font color=yellow size=4><b>CREATE OFFER SHORTCODE</b></a></p></li></ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=offer.php><font color=yellow size=4><b>UPLOAD OFFER</b></a></p></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=/offer><font color=yellow size=4><b>UPLOAD OFFER</b></a></p></li></ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=code.php><font color=yellow size=4><b>SHOPCODE+</b></a></p></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=/code><font color=yellow size=4><b>SHOPCODE+</b></a></p></li></ul>";
 
 
 
