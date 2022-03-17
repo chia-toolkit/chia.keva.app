@@ -207,6 +207,61 @@ $forsub=$_REQ["newasset"];
 
 $forsub=$forsub;
 
+//check offer
+
+			$pdata=array('offer' => $forsub);
+
+					$postfields="check_offer_validity";
+
+
+
+					$url="https://localhost/".$postfields;
+
+
+
+					  $postData = json_encode($pdata);
+            
+            
+        
+       
+						$ch = curl_init();
+						$params[CURLOPT_URL] = $url;   
+						$params[CURLOPT_HEADER] = false; 
+						$params[CURLOPT_RETURNTRANSFER] = true; 
+						$params[CURLOPT_FOLLOWLOCATION] = true; 
+						$params[CURLOPT_POST] = true;
+						$params[CURLOPT_PORT] = 9256;
+						$params[CURLOPT_POSTFIELDS] = $postData;
+						$params[CURLOPT_SSL_VERIFYPEER] = false;
+						$params[CURLOPT_SSL_VERIFYHOST] = false;
+
+						$params[CURLOPT_SSLCERTTYPE] = 'PEM';
+						$params[CURLOPT_SSLCERT] = 'pcrt.pem';
+						$params[CURLOPT_SSLKEYTYPE] = 'PEM';
+						$params[CURLOPT_SSLKEY] = 'pkey.pem';
+
+
+						curl_setopt_array($ch, $params); 
+						$content = curl_exec($ch); 
+						$output = curl_getinfo($ch);
+						curl_close($ch);
+
+
+
+						//echo $content;
+
+						//print_r(json_decode($content, true));
+
+						//print_r($output);
+
+						$total=json_decode($content, true);
+
+						//echo $key." ".$total['valid']."<br>";
+
+						if(!$total['valid']){echo "<script>alert('".$fortit." is not valid.');window.history.back();</script>";exit;}
+
+
+//add to space
 
 $age= $kpc->keva_put($force_namespace,$fortit,$forsub);
 
@@ -216,7 +271,7 @@ if($error != "")
 	
 	{
 
-echo"<script>alert('error, file<3kb only');</script>";
+echo "<script>alert('error, file<3kb only');</script>";
 
 $url ="offer.php";
 	  
@@ -288,6 +343,8 @@ echo "<div id=\"universe\" class=\"crt\"><div id=\"nav\">";
 
 //cat
 
+/*
+
 $cinfo= $kpc->keva_filter("NY145F97ASf74m1ahEDVpKwC4p7BXpFztP","",0);
 
 
@@ -308,6 +365,8 @@ echo "<li style=\"background-color: rgb(0, 0, 0);display:block;text-align:center
 			}
 		
 echo "</ul>";
+
+*/
 
 //list
 			
@@ -332,6 +391,59 @@ $info= $kpc->keva_filter($force_namespace,$cat,60000);
 
 			if(stristr($key,"CAT.SALE")==true){continue;}
 			if(stristr($key,"KEVA_NS_")==true){continue;}
+
+			//check offer
+
+			$pdata=array('offer' => $value);
+
+					$postfields="check_offer_validity";
+
+
+
+					$url="https://localhost/".$postfields;
+
+
+
+					  $postData = json_encode($pdata);
+            
+            
+        
+       
+						$ch = curl_init();
+						$params[CURLOPT_URL] = $url;   
+						$params[CURLOPT_HEADER] = false; 
+						$params[CURLOPT_RETURNTRANSFER] = true; 
+						$params[CURLOPT_FOLLOWLOCATION] = true; 
+						$params[CURLOPT_POST] = true;
+						$params[CURLOPT_PORT] = 9256;
+						$params[CURLOPT_POSTFIELDS] = $postData;
+						$params[CURLOPT_SSL_VERIFYPEER] = false;
+						$params[CURLOPT_SSL_VERIFYHOST] = false;
+
+						$params[CURLOPT_SSLCERTTYPE] = 'PEM';
+						$params[CURLOPT_SSLCERT] = 'pcrt.pem';
+						$params[CURLOPT_SSLKEYTYPE] = 'PEM';
+						$params[CURLOPT_SSLKEY] = 'pkey.pem';
+
+
+						curl_setopt_array($ch, $params); 
+						$content = curl_exec($ch); 
+						$output = curl_getinfo($ch);
+						curl_close($ch);
+
+
+
+						//echo $content;
+
+						//print_r(json_decode($content, true));
+
+						//print_r($output);
+
+						$total=json_decode($content, true);
+
+						//echo $key." ".$total['valid']."<br>";
+
+						if(!$total['valid']){$kinfo=$kpc->keva_delete($force_namespace,$key);continue;}
 
 			$arr["height"]=$height;
 			$arr["key"]=$key;
@@ -360,7 +472,7 @@ foreach ($totalass as $o=>$p)
 	$keyx=str_replace(".offer","",$key);
 	$keyx=str_replace("_x_"," ]</font> ..... ",$keyx);
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:100px;display:block;text-align:left;\"><h5 style=\"padding-left:10px;\"><a href=offer.php?fk=".$keyb."&fv=".$value.">[ FILE ".$height."]</a> <a href=?txid=".$txid."><font color=yellow>[ ".$keyx."</font></a></h5></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:100px;display:block;text-align:left;\"><h5 style=\"padding-left:10px;\"><a href=offer.php?fk=".$keyb."&fv=".$value.">[ FILE ".$height." ]</a> <a href=?txid=".$txid."><font color=yellow>[ ".$keyx."</font></a></h5></li></ul>";
 			
 			}
 
