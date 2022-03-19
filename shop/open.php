@@ -52,7 +52,11 @@ if(stristr($chkc,"offer")==true)
 
 		$age=$kpc->keva_list_namespaces();
 
+		//print_r($age);
+
 		$npnum=count($age);
+
+		//echo $npnum;
 
 		$goodname="";
 
@@ -61,19 +65,16 @@ if(stristr($chkc,"offer")==true)
 
 		extract($z);
 
-		if(stristr($displayName,"SALEOFFER")==true){continue;}
-		if(stristr($displayName,"SALESHOP")==true){continue;}
-		if(stristr($displayName,"SHOPCODE")==true){continue;}
 
-		if(stristr($displayName,"CAT.SALE️")==true){
+		if(strncmp($displayName,"CAT",3)==0){
 
 			$goodname=$namespaceId;
-					
-			break;
-			
-			}else{continue;}
+
+			}
 
 		}
+
+		
 
 	
 										if($npnum<6){
@@ -163,7 +164,7 @@ $shopns="SELL ";
 
 $shoptx="";
 
-$offerchk=1;
+$ochk=1;
 
 foreach($_FILES['images']['tmp_name'] as $x)
 
@@ -227,7 +228,9 @@ $fv=file_get_contents($x);
 
 						//echo $key." ".$total['valid']."<br>";
 
-						if(!$total['valid']){echo $_FILES['images']['name'][$name]." is not valid.<br>";continue;}else
+						if(!$total['valid']){echo $_FILES['images']['name'][$name]." is not valid.<br>";continue;}
+						
+						else
 							
 						{
 
@@ -270,7 +273,7 @@ $pdata=array('offer' => $offerf);
 
 $postData = http_build_query($pdata);
 
-$authorization="Authorization:Bearer ";
+$authorization="Authorization:Bearer code";
 				$curl = curl_init();
 
 				$url="https://hash.green/api/v1/orders";
@@ -293,13 +296,15 @@ $err = curl_error($curl);
 
 curl_close($curl);
 
-						$offerchk=0;}
+						$ochk="";}
 
 
 
 }
 
-if($offerchk==0){
+if(!$ochk){
+
+
 //theme
 
 $thenft=$kpc->keva_put($goodname,"THEME","offer");
@@ -368,7 +373,9 @@ $namespaceb= $kpc->keva_get($goodname,"_KEVA_NS_");
 
 						}
 
-if(!$sn){$bigstep="New Please Get again (10-30min)";}else{
+
+
+if(!$sn){$bigstep="Please Get again (10-30min)";}else{
 
 $bigstep="CAT.SALE SHOP ".$sn." open now. <font color=\"8CEA00\"></font> You can open <a href=https://cat.sale?".$sn."><font color=\"8CEA00\">cat.sale?".$sn."</font></a> to see your shop and share to everyone.(It will take 0-30min to write on the blockchain.)";}
 
@@ -385,6 +392,8 @@ $kva=$_REQ["kvadd"];
 
 $namesns=$kpc->keva_put($goodname,"_KEVA_NS_",$sn);
 
+$sntext=strval($sn);
+
 if(strlen($kva)==34){
 	
 		
@@ -399,14 +408,23 @@ if(strlen($kva)==34){
 		
 
 		}
+		
 
 		
 
 		$saleshop="NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq";
 
-		$ages=$kpc->keva_put($saleshop,$sn,$shopns);
+		$ages=$kpc->keva_put($saleshop,$sntext,$shopns);
+
+
+
+		$error = $kpc->error;
+
+		//echo $error." ".$saleshop." ".$sntext." ".$shopns;
 
 		$url ="/?".$sn;
+
+		//echo $url;
 
 
 
@@ -415,7 +433,7 @@ if(strlen($kva)==34){
 
 	}
 
-	}
+}
 
 echo "<div style=\"display:block;width:100%;font-family: coda_regular, arial, helvetica, sans-serif;\"><ul style=\"border: 0px solid #59fbea;\"><li style=\"text-align:center;list-style:none;color: #28f428;font-size: 30px;letter-spacing:4px;margin-top:10px;padding-top:5px;height:45px;background-color:#0b0c0d;}\"><a href=/ style=\"color: #28f428;text-decoration: none;\">CAT.SALE</a> ";
 
