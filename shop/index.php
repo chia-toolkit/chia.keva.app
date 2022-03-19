@@ -395,10 +395,12 @@ $offerchk=1;
 			}
 
 
-if($offerchk==1){echo "All offer accepted.";$kinfo=$kpc->keva_delete($cinfo,$comm);}
+
 
 
 $txfile="data/".$comm.'.txt';
+
+//no offer available
 
 	if($spwait==1){
 		
@@ -460,7 +462,7 @@ $txfile="data/".$comm.'.txt';
 		}else
 
 		{
-	
+		if($offerchk==1){echo "All offer accepted.";$kinfo=$kpc->keva_delete($cinfo,$comm);}
 		$status=unlink($txfile);
 	
 		}

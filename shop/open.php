@@ -65,19 +65,24 @@ if(stristr($chkc,"offer")==true)
 
 		extract($z);
 
+		$chkblock=$kpc->keva_get($namespaceId,"_KEVA_NS_");
 
-		if(strncmp($displayName,"CAT",3)==0){
+
+		if(strncmp($chkblock["value"],"CAT",3)==0){
 
 			$goodname=$namespaceId;
 
 			}
 
 		}
-
-		
+	
 
 	
-										if($npnum<6){
+			
+			
+
+	
+										if($npnum<20){
 
 										$age=$kpc->keva_namespace("CAT.SALE");
 										$age=$kpc->keva_namespace("CAT.SALE️");
@@ -88,70 +93,7 @@ if(stristr($chkc,"offer")==true)
 										$age=$kpc->keva_namespace("CAT.SALE️");
 										$age=$kpc->keva_namespace("CAT.SALE️");
 										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										$age=$kpc->keva_namespace("CAT.SALE️");
-										
+									
 
 										}
 
@@ -228,7 +170,7 @@ $fv=file_get_contents($x);
 
 						//echo $key." ".$total['valid']."<br>";
 
-						if(!$total['valid']){echo $_FILES['images']['name'][$name]." is not valid.<br>";continue;}
+						if(!$total['valid']){echo $_FILES['images']['name'][$name]." is not valid.<br>";}
 						
 						else
 							
@@ -273,7 +215,7 @@ $pdata=array('offer' => $offerf);
 
 $postData = http_build_query($pdata);
 
-$authorization="Authorization:Bearer code";
+$authorization="Authorization:Bearer ";
 				$curl = curl_init();
 
 				$url="https://hash.green/api/v1/orders";
@@ -392,7 +334,7 @@ $kva=$_REQ["kvadd"];
 
 $namesns=$kpc->keva_put($goodname,"_KEVA_NS_",$sn);
 
-$sntext=strval($sn);
+
 
 if(strlen($kva)==34){
 	
@@ -409,23 +351,32 @@ if(strlen($kva)==34){
 
 		}
 		
+		$snk=strval($sn);
 
+		$vchk=substr($shopns, -1);
+
+		if($vchk=="/"){$shopns=substr_replace($shopns,"",-1);}
 		
+		$shopnsk=strval($shopns);
 
-		$saleshop="NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq";
+		$sshop="NhMTJ9wXK4JNFdcE3FT1u8gDm6NEGtu5Cq";
 
-		$ages=$kpc->keva_put($saleshop,$sntext,$shopns);
+		$agesk=$kpc->keva_put($sshop,$snk,$shopnsk);
 
 
 
 		$error = $kpc->error;
 
-		//echo $error." ".$saleshop." ".$sntext." ".$shopns;
+		//print_r($agesk);
 
-		$url ="/?".$sn;
+		
+
+		//echo $error." ".$sshop." ".$snk." ".$shopnsk;
+
+		$url ="/?".$snk;
 
 		//echo $url;
-
+	
 
 
 		echo "<script>window.location.href=decodeURIComponent('".$url."')</script>";
