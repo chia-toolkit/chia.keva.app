@@ -272,7 +272,7 @@ echo "<div class=\"card mt-2\">";
 	
 echo "<div class=\"card-body\"><div class=\"card-title\"><h3 class=\"text-primary\">".$valuenm."</h3></div>";
 
-echo "<p class=\"text-info card-subtitle mb-3\">cat.sale?".$comm."</p>";
+echo "<p class=\"text-info card-subtitle mb-3\">cat.sale?".$comm." <a href=https://keva.app?rpg".$comm."><img src=nft/62881502.png width=24 style=\"vertical-align:middle\"></a></p>";
 
 echo "<div><div id=\"post-content\">";
 
