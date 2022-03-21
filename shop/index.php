@@ -379,7 +379,7 @@ $offerchk=1;
 
 				$xxx="";
 				
-				if(stristr($key,"_x_")==true){$spwait=0;$keyx=str_replace("_x_"," ] <font color=grey>..... ",$keyx);$xxx="[";}
+				if(stristr($key,"_x_")==true){$spwait=0;$offerchk=0;$keyx=str_replace("_x_"," ] <font color=grey>..... ",$keyx);$xxx="[";}
 
 
 				$keyx=str_replace("(1)","",$keyx);
@@ -388,7 +388,7 @@ $offerchk=1;
 
 			echo "<a href=offer.php?txid=".$txid.">".$xxx." ".$keyx."</font></a>";
 			
-			echo "</h4></div>";$offerchk=0;}
+			echo "</h4></div>";}
 				
 					
 	
@@ -458,11 +458,11 @@ $txfile="data/".$comm.'.txt';
 					 }
 				}
 
-			}
+			}else{	if($offerchk==1){echo "All offer accepted.";$kxinfo=$kpc->keva_delete($kinfo,$comm);$kxinfo=$kpc->keva_delete($cinfo,$comm);}}
 		}else
 
 		{
-		if($offerchk==1){echo "All offer accepted.";$kinfo=$kpc->keva_delete($cinfo,$comm);}
+	
 		$status=unlink($txfile);
 	
 		}
