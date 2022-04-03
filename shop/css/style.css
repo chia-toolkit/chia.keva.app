@@ -1,12 +1,12 @@
-
+@font-face {font-family: saoui-regular;src: url('../fonts/SAOUI-Regular.otf');}
 
 html {
-    font-family: coda_regular, arial, helvetica, sans-serif;
+    font-family: saoui-regular;
 }
 
 body{
     background-color: #121212;
-    font-family: coda_regular, arial, helvetica, sans-serif;
+    font-family: saoui-regular;
 	letter-spacing:1px;
 }
 
@@ -28,7 +28,7 @@ hr {
     border-right: solid 3px rgba(0,255,0,.75);
     white-space: nowrap;
     overflow: hidden;    
-    font-family: coda_regular, arial, helvetica, sans-serif;  
+    font-family: saoui-regular;  
 font-color: #28f428;
 }
 
