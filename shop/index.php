@@ -98,7 +98,7 @@ arsort($totalass);
 
 		echo "<ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=/ style=\"font-size:18px;color:#28f428;text-decoration: none;\"><b>CAT.SALE</b></a></p></li></ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://rpg.keva.app style=\"font-size:18px;color:#28f428;text-decoration: none;\"><b>CAT.SALE</b> <img src=nft/62881502.png width=24 style=\"vertical-align:text-top\"></a></p></li></ul>";
 
 echo "<ul><span><form action=\"\" method=\"post\" ><input type=\"text\" name=\"num\" maxlength=\"15\" placeholder=\"SHOP NUMBER\" style=\"width:150px;height:47px;margin-top:10px;padding-top:2px;margin-right:5px;\"></form></span></ul>";
 
@@ -121,9 +121,11 @@ echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block
 
 echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://offerbin.io/><font size=4><font color=\"#ccc\">[ DEX ] </font>OFFERBIN.IO</a></p></li></ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://offerpool.io/><font size=4><font color=\"#ccc\">[ DEX ] </font>OFFERPOOL.IO</a></p></li></ul></ul><ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://offerpool.io/><font size=4><font color=\"#ccc\">[ DEX ] </font>OFFERPOOL.IO</a></p></li></ul>";
 
-echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://dexie.space><font size=4><font color=\"#ccc\">[ DEX ] </font>DEXIE.SPACE</a></p></li></ul></ul><ul>";
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://dexie.space><font size=4><font color=\"#ccc\">[ DEX ] </font>DEXIE.SPACE</a></p></li></ul>";
+
+echo "<ul><li style=\"background-color: rgb(0, 79, 74);height:35px;display:block;text-align:left;\"><p style=\"padding-left:10px;\"><a href=https://mintgarden.io/statistics><font size=4><font color=\"#ccc\">[ NFT ] </font>MINTGARDEN.IO</a></p></li></ul></ul><ul>";
 
 //color
 
@@ -272,7 +274,7 @@ echo "<div class=\"card mt-2\">";
 	
 echo "<div class=\"card-body\"><div class=\"card-title\"><h3 class=\"text-primary\">".$valuenm."</h3></div>";
 
-echo "<p class=\"text-info card-subtitle mb-3\">cat.sale?".$comm." <a href=https://keva.app?rpg".$comm."><img src=nft/62881502.png width=24 style=\"vertical-align:middle\"></a></p>";
+echo "<p class=\"text-info card-subtitle mb-3\">cat.sale?".$comm." <a href=https://keva.app?rpg".$comm."><img src=nft/62881502.png width=24 style=\"vertical-align:-20%\"></a></p>";
 
 echo "<div><div id=\"post-content\">";
 
