@@ -5,4 +5,4 @@ cd /root/chia-blockchain
 
 . ./activate
 
-chia show -c
+chia peer -c full_node
