@@ -27,115 +27,15 @@ error_reporting(-1);
 
 	<body style="color:#ccc;">
 
-CHIA ASSET ID SEARCH  <a href=dream.php target=_blank><font color="8CEA00">[ADD NEW]</font></a><br><br>
 
-<?php
-
-$kpc = new Keva();
-
-$_REQ = array_merge($_GET, $_POST);
-
-$freeadd=trim(strip_tags($_REQ["num"]));
-
-
-echo "<form action=\"\" method=\"post\" >";
-
-if(!$freeadd){$cdata="ID OR NAME";}else{$cdata="$freeadd";}
-
-echo "<input type=\"text\" name=\"num\" id=\"editor\" class=\"textarea-inherit\"  style=\"width:175px;border: 1px solid #666666;font-family: coda_regular, arial, helvetica, sans-serif;-webkit-appearance: none;-webkit-border-radius:0;height:30px;font-size: 20px; background-color: rgb(11, 12, 13);color: #ddd;padding-left:10px;letter-spacing:2px;
-\" value=\"".$_REQUEST["hvalue"]."\" maxlength=64 placeholder=\"".$cdata."\">";
-
-echo "<input type=\"submit\" value=\"CHECK\" style=\"border: 0px solid #666666;-webkit-appearance:none ;-webkit-border-radius: 0;border-radius:0;height:36px;background-color:#212121;color: #59fbea;height:30px;width:100px;font-size: 20px;padding-top:0px;\">";
-
-echo "<br><br>";
-
-
-
-
-if(strlen($freeadd)==64) {
-
-	$cats=strtolower($freeadd);
-
-	$bigstep=$kpc->keva_get("NYL2Y1a1ZhrxSTXWdiKLoYujNX615Xo8ZB",$cats);
-
-	echo "<a href=https://keva.one/search?sq=".$bigstep['value']."><font color=\"8CEA00\">".$bigstep['value']."</font></a>";
-
-	$checkm=$bigstep['value'];
-
-	if($bigstep['value']!=""){
-	
-	$cats=strtoupper($bigstep['value']);
-
-	$bigstep=$kpc->keva_get("NY145F97ASf74m1ahEDVpKwC4p7BXpFztP",$cats);
-
-	$bigdata=$bigstep['value'];
-
-
-	$catid=substr($bigdata,0,64);
-	$catn=trim(strip_tags(strtolower($cats)));
-
-	$catida="<a href=https://keva.one/search?sq=".$catid."><font color=\"8CEA00\">".$catid."</font></a>";
-	$catna="<a href=https://keva.one/search?sq=".$catn."><font color=\"8CEA00\">".$catn."</font></a>";
-	$chiaa="<a href=https://keva.one/search?sq=chia><font color=\"8CEA00\">chia</font></a>";
-	$chiac="<a href=https://keva.one/search?sq=cats><font color=\"8CEA00\">cats</font></a>";
-
-	$bigdata=str_replace($catid,$catida,$bigdata);
-	$bigdata=str_replace($catn,$catna,$bigdata);
-	$bigdata=str_replace($cats,$catna,$bigdata);
-	$bigdata=str_replace("chia",$chiaa,$bigdata);
-	$bigdata=str_replace("cats",$chiac,$bigdata);
-
-	
-	echo "<br><br>".$bigdata;
-
-	echo "<br><br>Check ".$catn." offer on [<a href=https://offerbin.io/?o=".$catn." target=_blank><font color=\"8CEA00\">offerbin.io</font></a>] [<a href=https://hash.green/dex/ target=_blank><font color=\"8CEA00\">hash.green</font></a>] [<a href=/offer.php?cat=".$catn." target=_blank><font color=\"8CEA00\">chia.keva.app/offer</font></a>]";
-
-	
-							}
-
-	}
-	else
-	{
-	
-	$cats=strtoupper($freeadd);
-
-	$bigstep=$kpc->keva_get("NY145F97ASf74m1ahEDVpKwC4p7BXpFztP",$cats);
-	
-	$bigdata=$bigstep['value'];
-
-	$catid=substr($bigdata,0,64);
-	$catn=trim(strip_tags(strtolower($cats)));
-
-	$catida="<a href=https://keva.one/search?sq=".$catid."><font color=\"8CEA00\">".$catid."</font></a>";
-	$catna="<a href=https://keva.one/search?sq=".$catn."><font color=\"8CEA00\">".$catn."</font></a>";
-	$chiaa="<a href=https://keva.one/search?sq=chia><font color=\"8CEA00\">chia</font></a>";
-	$chiac="<a href=https://keva.one/search?sq=cats><font color=\"8CEA00\">cats</font></a>";
-
-	$bigdata=str_replace($catid,$catida,$bigdata);
-	$bigdata=str_replace($catn,$catna,$bigdata);
-	$bigdata=str_replace($cats,$catna,$bigdata);
-	$bigdata=str_replace("chia",$chiaa,$bigdata);
-	$bigdata=str_replace("cats",$chiac,$bigdata);
-
-	
-	echo "<br><br>".$bigdata;
-
-	echo "<br><br>Upload ".$catn." offer [<a href=https://offerbin.io/?o=".$catn." target=_blank><font color=\"8CEA00\">offerbin.io</font></a>] [<a href=https://hash.green/dex/ target=_blank><font color=\"8CEA00\">hash.green</font></a>] [<a href=https://cat.sale/offer target=_blank><font color=\"8CEA00\">cat.sale/offer</font></a>]";
-
-
-	}
-
-
-
-?>
-<br><br>
-Create offer shortcode [<a href=https://cat.sale target=_blank><font color="8CEA00">cat.sale</font></a>]
+NFT/CAT DEX [ <a href=https://cat.sale target=_blank><font color="8CEA00">CAT.SALE</font></a> ]
 
 <br><br>
 
-Search CATs [<a href=https://www.taildatabase.com/ target=_blank><font color="8CEA00">taildb</font></a>] [<a href=https://xchtoken.org/ target=_blank><font color="8CEA00">xchtoken</font></a>] [<a href=https://www.spacescan.io/xch/tokens/cat1/topTokens target=_blank><font color="8CEA00">spacescan</font></a>] [<a href=https://keva.one/search?sq=cats target=_blank><font color="8CEA00">keva.one</font></a>]
-
 <?php
+		
+		
+		
 $a=filemtime("node.log");
 $now_time = filemtime("good.log");
 $resource = fopen('node.log', 'r');
@@ -143,7 +43,7 @@ $arr = array();
 $totalass = array();
 $js=array();
 
-echo "<table><tr height=50><td width=160>Chia Nodes</td><td width=50 align=center>PORT</font></td><td width=100 align=center>BLOCK</td></tr><tr><td>45.79.220.6</td><td align=center><font color=\"8CEA00\">8444</font></td><td  align=center style=\"color:#FFD306;\">[LOCAL*]</td></tr>";
+echo "<table><tr height=50><td width=160>Chia Nodes</td><td width=50 align=center>PORT</font></td><td width=100 align=center>BLOCK</td></tr>";
 
 if($a>$now_time)
 
@@ -256,8 +156,8 @@ echo "</table>";
            echo "<br>Last Update: ".date("Y-m-d H:i:s",$now_time);
 
 		   ?>
-   <br><br>
-*If you want to remove your ip, you can disconnect local ip. <br>*You need to use the latest wallet on chia.net<br>*Green is fast in US(<0.2s)<br><br>Add all nodes:
+    <br><br>
+*You need to use the latest wallet on chia.net<br>*Green is fast in US(<0.2s)<br><br>Add all nodes:
 <br><br>curl https://chia.keva.app/ | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | while read line; do timeout 5s chia show -a $line:8444 ;done<br><br>WIN PowerShell<br><br>
 curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}\b' -AllMatches | % { $_.Matches } | % { $_.Value } | ForEach-Object { Start-Sleep -s 5; chia show -a $_":8444" }<br>
 
@@ -265,7 +165,7 @@ curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3
 
 
 <br>
-<table><tr height=50><td width=150>Links</td><td width=270 align=center></td></tr>
+<table><tr height=50><td width=150>LINKS</td><td width=270 align=center></td></tr>
 
 
 
@@ -273,23 +173,23 @@ curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3
 <tr><td>kevacoin code</td><td align=left><font color="8CEA00">62108412</font></td></tr>
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
-
-<tr><td>Offer</td><td align=left><font color="8CEA00">offerpool.io</font></td></tr>
+<tr><td>LINKS</td><td align=left><font color="8CEA00">chialinks.com</font></td></tr>
+<tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
+<tr><td>Roadmap</td><td align=left><font color="8CEA00">roadmap.chia.net</font></td></tr>
 <tr><td>Offer</td><td align=left><font color="8CEA00">dexie.space</font></td></tr>
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
 <tr><td>Free Chia</td><td align=left><font color="8CEA00">faucet.chia.net</font></td></tr>
-<tr><td>Free Chia</td><td align=left><font color="8CEA00">chia2start.eu<font></td></tr>
 <tr><td>Free Chia</td><td align=left><font color="8CEA00">xchfaucet.togatech.org</font></td></tr>
-<tr><td>Free Chia</td><td align=left><font color="8CEA00">faucet.mojowhale.com</font></td></tr>
+
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
 
-<tr><td>Explorer</td><td align=left><font color="8CEA00">chiaexplorer.com</font></td></tr>
+<tr><td>Explorer</td><td align=left><font color="8CEA00">spacescan.io</font></td></tr>
 <tr><td>Explorer</td><td align=left><font color="8CEA00">chiastatus.com</font></td></tr>
-<tr><td>Calculator</td><td align=left><font color="8CEA00">lite.profit-mine.com/en/hdd</font></td></tr>
+<tr><td>Calculator</td><td align=left><font color="8CEA00">profit-mine.com/en/hdd</font></td></tr>
 <tr><td>Calculator</td><td align=left><font color="8CEA00">chiacalculator.com</font></td></tr>
 <tr><td>Calculator</td><td align=left><font color="8CEA00">chia.tt</font></td></tr>
 <tr><td>Calculator</td><td align=left><font color="8CEA00">graphchia.com</font></td></tr>
@@ -301,16 +201,7 @@ curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3
 <tr><td>Pool</td><td align=left><font color="8CEA00">chiapool.directory</font></td></tr>
 
 
-<tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
-<tr><td>Blog</td><td align=left><font color="8CEA00">thechiaplot.net</font></td></tr>
-<tr><td>Blog</td><td align=left><font color="8CEA00">chiadecentral.com</font></td></tr>
-<tr><td>Blog</td><td align=left><font color="8CEA00">thechiafarmer.com</font></td></tr>
-
-<tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
-
-<tr><td>Clisp</td><td align=left><font color="8CEA00">chialisp.com/docs</font></td></tr>
-<tr><td>Clisp</td><td align=left><font color="8CEA00">clisp.surrealdev.com</font></td></tr>
 
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
@@ -320,7 +211,7 @@ curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3
 
 <tr><td>-</td><td align=left><font color="8CEA00"></font></td></tr>
 
-<tr><td>LINKS</td><td align=left><font color="8CEA00">chialinks.com</font></td></tr>
+
 
 
 
@@ -328,122 +219,5 @@ curl https://chia.keva.app/ | Select-String -Pattern '\b\d{1,3}\.\d{1,3}\.\d{1,3
 
 <br>
 
- </body>
+</body>
 
- <?php
-
- class Keva {
-
-    private $proto;
-
-    private $url;
-    private $CACertificate;
-
-    public $status;
-    public $error;
-    public $raw_response;
-    public $response;
-
-    private $id = 0;
-
-    public function __construct($url = null) {
-		
-        $this->username      = 'galaxy'; // RPC Username
-        $this->password      = 'frontier'; // RPC Password
-		$this->host          = '127.0.0.1'; // Localhost
-        $this->port          = '9992';
-        $this->url           = $url;
-
-        $this->proto         = 'http';
-        $this->CACertificate = null;
-    }
-
-    public function setSSL($certificate = null) {
-        $this->proto         = 'https';
-        $this->CACertificate = $certificate;
-    }
-
-    public function __call($method, $params) {
-        $this->status       = null;
-        $this->error        = null;
-        $this->raw_response = null;
-        $this->response     = null;
-
-        $params = array_values($params);
-
-        $this->id++;
-
-        $request = json_encode(array(
-            'method' => $method,
-            'params' => $params,
-            'id'     => $this->id
-        ));
-
-        $curl    = curl_init("{$this->proto}://{$this->host}:{$this->port}/{$this->url}");
-        $options = array(
-            CURLOPT_HTTPAUTH       => CURLAUTH_BASIC,
-            CURLOPT_USERPWD        => $this->username . ':' . $this->password,
-            CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_FOLLOWLOCATION => true,
-            CURLOPT_MAXREDIRS      => 10,
-            CURLOPT_HTTPHEADER     => array('Content-type: text/plain'),
-            CURLOPT_POST           => true,
-            CURLOPT_POSTFIELDS     => $request
-        );
-
-        if (ini_get('open_basedir')) {
-            unset($options[CURLOPT_FOLLOWLOCATION]);
-        }
-
-        if ($this->proto == 'https') {
-            if (!empty($this->CACertificate)) {
-                $options[CURLOPT_CAINFO] = $this->CACertificate;
-                $options[CURLOPT_CAPATH] = DIRNAME($this->CACertificate);
-            } else {
-                $options[CURLOPT_SSL_VERIFYPEER] = false;
-            }
-        }
-
-        curl_setopt_array($curl, $options);
-
-        $this->raw_response = curl_exec($curl);
-        $this->response     = json_decode($this->raw_response, true);
-
-        $this->status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-        $curl_error = curl_error($curl);
-
-        curl_close($curl);
-
-        if (!empty($curl_error)) {
-            $this->error = $curl_error;
-        }
-
-        if ($this->response['error']) {
-            $this->error = $this->response['error']['message'];
-        } elseif ($this->status != 200) {
-            switch ($this->status) {
-                case 400:
-                    $this->error = 'HTTP_BAD_REQUEST';
-                    break;
-                case 401:
-                    $this->error = 'HTTP_UNAUTHORIZED';
-                    break;
-                case 403:
-                    $this->error = 'HTTP_FORBIDDEN';
-                    break;
-                case 404:
-                    $this->error = 'HTTP_NOT_FOUND';
-                    break;
-            }
-        }
-
-        if ($this->error) {
-			return false;
-        }
-
-        return $this->response['result'];
-    }
-}
-
-?>
